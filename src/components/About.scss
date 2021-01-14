@@ -1,0 +1,125 @@
+.about {
+    color: rgba(0, 202, 225, 1);
+    width: 1440px;
+    height: 724px;
+    background: linear-gradient(224.68deg, #010F12 0%, #06262D 100%);
+    position: relative;
+}
+
+.about__shell {
+    display: flex;
+    justify-content: center;
+}
+
+.about__layer {
+    width: 1120px;
+    height: 724px;
+    border-left: 1px solid rgba(0, 202, 225, .25);
+    border-right: 1px solid rgba(0, 202, 225, .25);
+}
+
+.about__title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 89px;
+    margin-top: 100px;
+}
+
+.about__title span {
+    color: #ffb500
+}
+
+.about__title::after {
+    content: '';
+    position: absolute;
+    width: 791px;
+    height: 1px;
+    left: 0px;
+    top: 205px;
+    background:  rgba(0, 202, 225, .25);
+}
+
+.about__text {
+    width: 357px;
+    height: 216px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    margin-top: 40px;
+}
+
+.about__button {
+    width: 357px;
+    height: 48px;
+    background: linear-gradient(90deg, #FFB500 0%, #FFD027 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 24px rgba(255, 208, 39, 0.25);
+    border-radius: 8px;
+    color: #031A1E;
+    margin-top: 52px;
+}
+
+.about__logo {
+    position: absolute;
+    right: 160px;
+    bottom: 40px;
+}
+
+.about__sidebar {
+    position: absolute;
+    bottom: 470px;
+    right: 41px;
+    width: 148px;
+    height: 148px;
+    font-size: 19px;
+}
+
+.about__sidebar ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about__sidebar-item {
+    position: relative;
+    height: 20px;
+}
+
+.about__sidebar-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    left: -30px;
+    background: transparent;
+    border: 1px solid #00CAE1;
+}
+
+.sidebar-item_active::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    left: -30px;
+    bottom: -4px;
+    background:  rgba(0, 202, 225, 1);
+}
+
+.sidebar-item__caption {
+    display: none;
+}
+
+.sidebar-item_active .sidebar-item__caption {
+    display: block;
+    padding-left: 10px;
+}
+
