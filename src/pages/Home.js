@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import './Home.scss'
 
 export const Home = () => {
     return (
-        <Fragment>
-            <h1>Home</h1>
-        </Fragment>
+        <div className="home-banner">
+            <img src={"../img/banner-homepage.png"} />
+        </div>
     )
 }

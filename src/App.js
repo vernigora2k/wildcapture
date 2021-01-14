@@ -6,8 +6,8 @@ import { WhatWeDo } from './pages/WhatWeDo';
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <div className="container">
+        <Header />
         <Switch>
           <Route path={'/'} exact component={Home}></Route>
           <Route path={'/whatwedo'} component={WhatWeDo}></Route>

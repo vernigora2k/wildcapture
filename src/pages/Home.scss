@@ -1,0 +1,32 @@
+.home-banner {
+    width: 1440px;
+    height: 724px;
+    position: relative;
+    z-index: 1;
+}
+
+.home-banner::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 108px;
+    left: 1279px;
+    top: 616px;
+    background: #00CAE1;
+}
+
+.home-banner::after {
+    content: 'Watch more';
+    position: absolute;
+    width: 98px;
+    height: 24px;
+    left: 1232px;
+    top: 540px;
+    font-family: Geogrotesque;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 24px;
+    color: #00CAE1;
+    transform: rotate(-90deg);
+}
