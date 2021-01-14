@@ -4,7 +4,7 @@ import './About.scss'
 export const About = () => {
     return (
         <section className="about">
-            <div className="about__shell">
+            <div className="about__shell" style={{ backgroundImage: "url(img/pirja4ko-temp.png)" }}>
                 <div className="about__layer">
                     <div className="about__title"><span>Wild Capture</span> Agency</div>
                     <div className="about__text">
