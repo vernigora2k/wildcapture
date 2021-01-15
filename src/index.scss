@@ -21,7 +21,7 @@ a, a:active, a:focus {
   outline: none;
 }
 
-button {
+button,input[type="submit"] {
   width: 357px;
   height: 48px;
   background: linear-gradient(90deg, #FFB500 0%, #FFD027 100%);
@@ -32,4 +32,17 @@ button {
   font-size: 19px;
   font-weight: 500;
   color: #031A1E;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #00CAE1;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #00CAE1;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #00CAE1;
 }

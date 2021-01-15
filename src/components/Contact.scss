@@ -1,0 +1,134 @@
+.contact {
+    color: rgba(0, 202, 225, 1);
+    width: 1440px;
+    height: 647px;
+    background: linear-gradient(255.81deg, #010F12 0%, #06262D 100%);
+    position: relative;
+}
+
+.contact__shell {
+    display: flex;
+    justify-content: center;
+}
+
+.contact__layer {
+    width: 1120px;
+    height: 647px;
+}
+
+.contact__title {
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    margin-top: 65px;
+    margin-left: 381px;
+}
+
+.contact__main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.contact__nav {
+    width: 357px;
+    height: 168px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.contact__info {
+    width: 357px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__info>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__info>div:first-child {
+    margin-bottom: 40px;
+}
+
+.contact__info-value {
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+}
+
+.contact__info-caption {
+    font-size: 19px;
+    font-weight: 500;
+    color: #00CAE1;
+    margin-top: 5px;
+}
+
+.contact__info-email {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    color: white;
+    margin-top: 8px;
+}
+
+.contact__form {
+    width: 357px;
+}
+
+.contact__input {
+    width: 340px;
+    height: 48px;
+    background-color: transparent;
+    border: 1px solid #084654;
+    border-radius: 8px;
+    color: #00CAE1;
+    font-size: 19px;
+    padding-left: 17px;
+    margin-bottom: 16px;
+}
+
+.contact__input:focus {
+    border-color: rgba(255, 255, 0, .45);
+}
+
+.contact__textarea {
+    width: 340px;
+    height: 120px;
+    background-color: transparent;
+    border: 1px solid #084654;
+    border-radius: 8px;
+    color: #00CAE1;
+    font-size: 19px;
+    padding-left: 17px;
+    padding-top: 12px;
+    resize: none;
+}
+
+.contact__textarea:focus {
+    border-color: rgba(255, 255, 0, .45);
+}
+
+.contact__submit {
+    margin-top: 16px;
+    margin-left: 2px;
+}
+
+.footer {
+    margin-top: 14px;
+}
+
+.footer__logo {
+
+}
+
+.footer__copyright {
+    color: white;
+    margin-top: 14px;
+    line-height: 36px;
+}

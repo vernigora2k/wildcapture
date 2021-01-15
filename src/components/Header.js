@@ -13,9 +13,9 @@ export const Header = () => {
                     <div className="header__aside">
                         <nav className="header__nav">
                             <NavLink to="/whatwedo" className="nav__nav-link">What we do</NavLink>
-                            <a href="#" className="nav__nav-link">About</a>
-                            <a href="#" className="nav__nav-link">Work</a>
-                            <a href="#" className="nav__nav-link">Contact</a>
+                            <a href="#about" className="nav__nav-link">About</a>
+                            <a href="#work" className="nav__nav-link">Work</a>
+                            <a href="#contact" className="nav__nav-link">Contact</a>
                         </nav>
                     </div>
                 </div>

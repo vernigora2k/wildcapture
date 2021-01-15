@@ -20,7 +20,7 @@ export const Work = () => {
     }
 
     return (
-        <section className="work">
+        <section className="work" id="work">
             <div className="work__shell">
                 <div className="work__layer">
                     <div className="work__title">Real Digital People</div>
