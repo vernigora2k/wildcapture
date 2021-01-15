@@ -1,0 +1,21 @@
+section.home-banner {
+    background-color: black !important;
+}
+
+.banner-image {
+    position: absolute;
+    z-index: 1;
+}
+
+.banner-left-layer {
+    position: absolute;
+    z-index: 2;
+    width: 710px;
+    height: 724px;
+    background: linear-gradient(255.81deg, #010F12 0%, #06262D 100%);
+}
+
+.banner-upper-layer {
+    position: absolute;
+    z-index: 3;
+}
