@@ -15,11 +15,15 @@ export const Work = () => {
         name8: 'work-video-item.png',
     }
 
+    const moreWorkToggle = () => {
+        setIsMoreWorks(!isMoreWorks)
+    }
+
     return (
         <section className="work">
             <div className="work__shell">
                 <div className="work__layer">
-                <div className="work__title">Real Digital People</div>
+                    <div className="work__title">Real Digital People</div>
                     <div className="work__videos">
                         {!isMoreWorks ? 
                             Object.entries(workVideos).slice(1,4).map(([name, value]) => {return (
@@ -42,7 +46,26 @@ export const Work = () => {
                             )}) 
                         }
                     </div>
-                    
+                    <button className="button work__button" onClick={moreWorkToggle}>{!isMoreWorks ? 'More' : 'Less'} works</button>
+                    <div className="work__logo">
+                        <img src={"../img/work-main-image.svg"} />
+                    </div>
+                    <div className="work__sidebar">
+                        <ul>
+                            <li className="work__sidebar-item">
+                                <span className="sidebar-item__caption">What we do</span>
+                            </li>
+                            <li className="work__sidebar-item">
+                                <span className="sidebar-item__caption"> About</span>
+                            </li>
+                            <li className="work__sidebar-item sidebar-item_active">
+                                <span className="sidebar-item__caption">Work</span>
+                            </li>
+                            <li className="work__sidebar-item">
+                                <span className="sidebar-item__caption">Contact</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>

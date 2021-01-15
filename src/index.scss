@@ -1,5 +1,12 @@
 @import url(//db.onlinewebfonts.com/c/0fb11be8781037453723dda767b71596?family=Geogrotesque);
 
+body {
+  -webkit-transition: all 0.3s ease;;
+  -moz-transition: all 0.3s ease;;
+  -o-transition: all 0.3s ease;;
+  transition: all 0.3s ease;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -12,4 +19,17 @@ a, a:active, a:focus {
   color: inherit;
   text-decoration: none;
   outline: none;
+}
+
+button {
+  width: 357px;
+  height: 48px;
+  background: linear-gradient(90deg, #FFB500 0%, #FFD027 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 24px rgba(255, 208, 39, 0.25);
+  border-radius: 8px;
+  font-size: 19px;
+  font-weight: 500;
+  color: #031A1E;
 }

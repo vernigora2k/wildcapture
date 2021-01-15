@@ -18,7 +18,7 @@ export const About = () => {
                             Instant High Quality Content on the Web
                         </span>
                     </div>
-                    <button className="about__button">Get in touch</button>
+                    <button className="button about__button">Get in touch</button>
                 </div>
                 <div className="about__logo">
                     <img src={"../img/about-main-image.svg"} />
