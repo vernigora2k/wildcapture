@@ -18,7 +18,7 @@
     width: 1440px;
     height: 1px;
     left: 0px;
-    top: 385px;
+    top: 361px;
     background:  rgba(255, 255, 255, .25);
     z-index: 0;
 }
@@ -29,7 +29,7 @@
     width: 1440px;
     height: 1px;
     left: 0px;
-    top: 528px;
+    top: 480px;
     background:  rgba(255, 255, 255, .25);
     z-index: 0;
 }
@@ -48,7 +48,7 @@
     position: absolute;
     width: 1px;
     height: 100%;
-    left: 707px;
+    left: 516px;
     top: 0px;
     background:  rgba(255, 255, 255, .25);
     z-index: 0;
@@ -59,7 +59,7 @@
     position: absolute;
     width: 1px;
     height: 100%;
-    left: 732px;
+    left: 541px;
     top: 0px;
     background:  rgba(255, 255, 255, .25);
     z-index: 0;
@@ -88,28 +88,63 @@
     width: 1440px;
     height: 1px;
     left: 0px;
-    top: 360px;
+    top: 336px;
     background:  rgba(255, 255, 255, .25);
     z-index: 0;
 }
 
-.partners__videos {
+.partners__main {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    // justify-content: center;
+    margin-top: 23px;
 }
 
-.partners__videos-item {
-    width: 358px;
-    height: 210px;
-    position: relative;
-    margin-top: 40px;
+.partners__main::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 898px;
+    top: 0px;
+    background:  rgba(255, 255, 255, .25);
+    z-index: 0;
+}
+
+.partners__main::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 922px;
+    top: 0px;
+    background:  rgba(255, 255, 255, .25);
+    z-index: 0;
+}
+
+.partners__item-shell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 356px;
+    height: 118px;
+    margin-top: 25px;
+}
+
+.partners__item {
+    width: 320px;
+    height: 106px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: 2;
 }
 
+.partners__item-shell:nth-child(3n+2) {
+    margin-left: 20px;
+    margin-right: 20px;
+}
 
-.partners__logo {
+.partners__image {
     position: absolute;
     right: 160px;
     top: 75px;
