@@ -1,4 +1,4 @@
-.expertise {
+.partners {
     color: white;
     width: 1440px;
     min-height: 724px;
@@ -7,12 +7,12 @@
     position: relative;
 }
 
-.expertise__shell {
+.partners__shell {
     display: flex;
     justify-content: center;
 }
 
-.expertise__shell:before {
+.partners__shell:before {
     content: '';
     position: absolute;
     width: 1440px;
@@ -23,7 +23,7 @@
     z-index: 0;
 }
 
-.expertise__shell::after {
+.partners__shell::after {
     content: '';
     position: absolute;
     width: 1440px;
@@ -34,7 +34,7 @@
     z-index: 0;
 }
 
-.expertise__layer {
+.partners__layer {
     width: 1120px;
     min-height: 724px;
     display: flex;
@@ -43,7 +43,7 @@
     border-right: 1px solid rgba(255, 255, 255, .25);
 }
 
-.expertise__layer:before {
+.partners__layer:before {
     content: '';
     position: absolute;
     width: 1px;
@@ -54,7 +54,7 @@
     z-index: 0;
 }
 
-.expertise__layer::after {
+.partners__layer::after {
     content: '';
     position: absolute;
     width: 1px;
@@ -65,13 +65,13 @@
     z-index: 0;
 }
 
-.expertise__title {
+.partners__title {
     font-size: 72px;
     font-weight: 600;
     margin-top: 100px;
 }
 
-.expertise__title:before {
+.partners__title:before {
     content: '';
     position: absolute;
     width: 1440px;
@@ -82,7 +82,7 @@
     z-index: 0;
 }
 
-.expertise__title::after {
+.partners__title::after {
     content: '';
     position: absolute;
     width: 1440px;
@@ -93,44 +93,25 @@
     z-index: 0;
 }
 
-.expertise__main {
+.partners__videos {
     display: flex;
     flex-wrap: wrap;
-    font-size: 24px;
-    line-height: 36px;
-    font-weight: 500;
-    color: #031A1E;
+    width: 100%;
+    // justify-content: center;
 }
 
-.expertise__item {
-    display: flex;
-    flex-direction: column;
-    width: 452px;
-    height: 142px;
-    padding-left: 94px;
-    margin-top: 37px;
+.partners__videos-item {
+    width: 358px;
+    height: 210px;
     position: relative;
+    margin-top: 40px;
+    z-index: 2;
 }
 
-.expertise__item:nth-child(2n) {
-    margin-left: 26px;
-}
 
-.expertise__puzzle-image {
+.partners__logo {
     position: absolute;
-    left: 0px;
-}
-
-.expertise__left-image {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-}
-
-.expertise__right-image {
-    position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 160px;
+    top: 75px;
     z-index: 1;
 }

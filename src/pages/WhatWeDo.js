@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react'
+import { Contact } from '../components/Contact'
 import { Expertise } from '../components/Expertise'
+import { Partners } from '../components/Partners'
 import { Pipeline } from '../components/Pipeline'
 import './Whatwedo.scss'
 
@@ -36,6 +38,8 @@ export const WhatWeDo = () => {
             </section>
             <Expertise />
             <Pipeline />
+            <Partners />
+            <Contact />
         </Fragment>
     )
 }
