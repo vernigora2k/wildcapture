@@ -16,9 +16,9 @@ export const Contact = () => {
                     <div className="contact__main">
                         <nav className="contact__nav">
                             <NavLink to="/whatwedo" className="contact__nav-link">What we do</NavLink>
-                            <a href="#about" className="contact__nav-link">About</a>
-                            <a href="#work" className="contact__nav-link">Work</a>
-                            <a href="#contact" className="contact__nav-link">Contact</a>
+                            <a href="/#about" className="contact__nav-link">About</a>
+                            <a href="/#work" className="contact__nav-link">Work</a>
+                            <a href="/#contact" className="contact__nav-link">Contact</a>
                         </nav>
                         <div className="contact__info">
                             <div>
