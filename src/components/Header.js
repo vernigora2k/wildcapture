@@ -1,13 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.scss'
 
 export const Header = () => {
+    console.log(window.location.href.includes('whatwedo'))
+    const [whatWeDoPage, setWhatWeDoPage] = useState(window.location.href.includes('whatwedo'))
+
+    // useEffect(() => {
+
+    //     setWhatWeDoPage(!whatWeDoPage)
+        
+    // }, window.location.href.includes('whatwedo'))
+
     return (
         <header className="header">
             <div className="header__shell">
                 <div className="header__row">
-                    <NavLink to="/" exact className="logo">
+                    <NavLink to="/" exact className="header__logo" id="header__logo">
+                        {/* <img src={"../img/wildcapture-logo.svg"} className={whatWeDoPage ? 'left-shift' : ''} /> */}
                         <img src={"../img/wildcapture-logo.svg"} />
                     </NavLink>
                     <div className="header__aside">
