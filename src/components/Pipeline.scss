@@ -2,8 +2,7 @@
     color: white;
     width: 1440px;
     min-height: 724px;
-    background: linear-gradient(224.68deg, #303636 0%, #00A8BB 100%);
-    box-shadow: 0px 0px 48px rgba(44, 233, 255, 0.25);
+    background: linear-gradient(255.81deg, #010F12 0%, #06262D 100%);
     position: relative;
 }
 
@@ -69,6 +68,7 @@
     font-size: 72px;
     font-weight: 600;
     margin-top: 100px;
+    color: #00CAE1;
 }
 
 .pipeline__title:before {
@@ -77,7 +77,7 @@
     width: 1440px;
     height: 1px;
     left: 0px;
-    top: 210px;
+    top: 215px;
     background:  rgba(255, 255, 255, .25);
     z-index: 0;
 }
@@ -88,26 +88,88 @@
     width: 1440px;
     height: 1px;
     left: 0px;
-    top: 420px;
+    top: 412px;
     background:  rgba(255, 255, 255, .25);
     z-index: 0;
 }
 
-.pipeline__videos {
+.pipeline__main {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    // justify-content: center;
+    margin-top: 20px;
 }
 
-.pipeline__videos-item {
-    width: 358px;
-    height: 210px;
+.pipeline__main::before {
+    content: '';
+    position: absolute;
+    width: 1440px;
+    height: 1px;
+    left: 0px;
+    top: 437px;
+    background:  rgba(255, 255, 255, .25);
+    z-index: 0;
+}
+
+.pipeline__main::after {
+    content: '';
+    position: absolute;
+    width: 1440px;
+    height: 1px;
+    left: 0px;
+    top: 634px;
+    background:  rgba(255, 255, 255, .25);
+    z-index: 0;
+}
+
+.pipeline__item {
+    width: 357px;
+    height: 198px;
+    background: radial-gradient(91.6% 297.77% at 91.6% 18.69%, #093139 0.14%, #06262D 100%);
+    box-shadow: 0px 4px 8px rgba(1, 18, 21, 0.1);
+    border-radius: 8px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+    color: #00CAE1;
     position: relative;
-    margin-top: 40px;
     z-index: 2;
 }
 
+.pipeline__item:nth-child(3n+2) {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.pipeline__item-caption {
+    font-size: 24px;
+    font-weight: 700;
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-right: 30px;
+}
+
+.pipeline__item-description {
+    font-size: 24px;
+    font-weight: 500;
+    padding-left: 25px;
+    padding-right: 30px;
+}
+
+.pipeline__item-number {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 48px;
+    line-height: 60px;
+    text-shadow: 0px 0px 48px rgba(44, 233, 255, 0.25);
+}
+
+.pipeline__bottom-image img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
 .pipeline__logo {
     position: absolute;
