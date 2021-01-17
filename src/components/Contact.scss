@@ -135,6 +135,86 @@
 
 @media all and (max-width: 1460px) {
     .contact {
-        display: none;
+        width: 100%;
+        max-width: 414px;
+        height: 1060px;
+        position: relative;
+    }
+
+    .contact__layer {
+        width: 100%;
+        height: 1060px;
+    }
+
+    .contact__title {
+        position: absolute;
+        top: 140px;
+        left: -366px;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .contact__nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 85px;
+        margin-top: 55px;
+        margin-left: 16px;
+    }
+
+    .contact__nav-link {
+        width: 156px;
+        height: 24px;
+    }
+
+    .contact__main {
+        flex-direction: column;
+    }
+
+    .contact__info {
+        margin-top: 92px;
+        margin-left: 16px;
+    }
+
+    .contact__info>div:first-child {
+        margin-bottom: 20px;
+    }
+
+    .contact__info-value {
+        font-size: 19px;
+    }
+
+    .contact__info-caption {
+        font-size: 15px;
+    }
+
+    .contact__info-email {
+        font-size: 19px;
+    }
+
+    .contact__form {
+        align-self: center;
+        margin-top: 55px;
+    }
+
+    .contact__input {
+        height: 48px;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 55px;
+    }
+
+    .footer__logo {
+        width: 156px;
+        height: 20px;
+    }
+
+    .footer__copyright {
+        font-size: 14px;
     }
 }
