@@ -115,3 +115,8 @@
     padding-left: 10px;
 }
 
+@media all and (max-width: 1460px) {
+    .about {
+        display: none;
+    }
+}

@@ -3,13 +3,20 @@ import { NavLink } from 'react-router-dom';
 import './Header.scss'
 
 export const Header = () => {
-    console.log(window.location.href.includes('whatwedo'))
-    const [whatWeDoPage, setWhatWeDoPage] = useState(window.location.href.includes('whatwedo'))
+    const [toggleHamburgerMenu, setToggleHamburgerMenu] = useState(false)
 
+    const handleHamburgerMenu = () => {
+        setToggleHamburgerMenu(!toggleHamburgerMenu)
+    }
+
+    const handleGetInTouch = () => {
+        console.log('Get in touch')
+    }
+
+    // console.log(window.location.href.includes('whatwedo'))
+    // const [whatWeDoPage, setWhatWeDoPage] = useState(window.location.href.includes('whatwedo'))
     // useEffect(() => {
-
-    //     setWhatWeDoPage(!whatWeDoPage)
-        
+    //     setWhatWeDoPage(!whatWeDoPage)   
     // }, window.location.href.includes('whatwedo'))
 
     return (
@@ -27,6 +34,28 @@ export const Header = () => {
                             <a href="/#work" className="nav__nav-link">Work</a>
                             <a href="/#contact" className="nav__nav-link">Contact</a>
                         </nav>
+                        
+                        {toggleHamburgerMenu ? 
+                            <nav className="header__hamburger-menu">
+                                <NavLink to="/whatwedo" className="nav__nav-link">What we do</NavLink>
+                                <a href="/#about" className="nav__nav-link">About</a>
+                                <a href="/#work" className="nav__nav-link">Work</a>
+                                <a href="/#contact" className="nav__nav-link">Contact</a>
+                                <button className="button hamburger-getintouch" onSubmit={handleGetInTouch}>Get in touch</button>
+                                <button 
+                                    className="header__hamburger-close" 
+                                    onClick={handleHamburgerMenu} 
+                                    style={{ backgroundImage: `url(img/hamburger-close-cross.svg)`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}
+                                >
+                                </button>
+                            </nav>
+                        : <button 
+                                className="header__hamburger-button" 
+                                onClick={handleHamburgerMenu} 
+                                style={{ backgroundImage: `url(img/hamburger-menu-icon.svg)`, backgroundRepeat: 'no-repeat'}}
+                          >
+                          </button>
+                        }
                     </div>
                 </div>
             </div>

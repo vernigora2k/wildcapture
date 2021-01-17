@@ -132,3 +132,9 @@
     margin-top: 14px;
     line-height: 36px;
 }
+
+@media all and (max-width: 1460px) {
+    .contact {
+        display: none;
+    }
+}
