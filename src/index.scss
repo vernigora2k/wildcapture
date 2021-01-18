@@ -1,10 +1,13 @@
-@import url(//db.onlinewebfonts.com/c/0fb11be8781037453723dda767b71596?family=Geogrotesque);
+// @import url(//db.onlinewebfonts.com/c/0fb11be8781037453723dda767b71596?family=Geogrotesque);
+@import url("fonts/stylesheet.css");
 
 body {
   -webkit-transition: all 0.3s ease;;
   -moz-transition: all 0.3s ease;;
   -o-transition: all 0.3s ease;;
   transition: all 0.3s ease;
+  font-family: Geogrotesque Cyr;
+  background-color: #111111;
 }
 
 .container {
@@ -12,7 +15,7 @@ body {
   align-items: center;
   flex-direction: column;
   color: white;
-  font-family: Geogrotesque;
+  font-family: Geogrotesque Cyr;
   overflow: hidden;
 }
 

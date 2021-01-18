@@ -19,11 +19,10 @@ section.whatwedo__banner {
 .whatwedo__banner::after {
     content: 'Watch more';
     position: absolute;
-    width: 98px;
+    width: 120px;
     height: 24px;
-    left: 1232px;
-    top: 540px;
-    font-family: Geogrotesque;
+    left: 1222px;
+    top: 535px;
     font-style: normal;
     font-weight: 600;
     font-size: 19px;
@@ -124,7 +123,7 @@ section.whatwedo__banner {
     }
 
     .whatwedo__banner::after {
-        left: 84%;
+        left: 80%;
     }
 
     .banner-left-layer {

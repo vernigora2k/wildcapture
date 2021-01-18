@@ -221,11 +221,10 @@
     .expertise__main::before {
         content: '';
         position: absolute;
-        width: 100%;
+        width: 414px;
         height: 1px;
-        left: 0;
-        right: 30px;
-        top: 452px;
+        left: -10px;
+        top: 327px;
         background:  rgba(255, 255, 255, .25);
         z-index: 0;
     }
@@ -233,10 +232,10 @@
     .expertise__main::after {
         content: '';
         position: absolute;
-        width: 100%;
+        width: 414px;
         height: 1px;
-        left: 0px;
-        top: 592px;
+        left: -10px;
+        top: 467px;
         background:  rgba(255, 255, 255, .25);
         z-index: 0;
     }

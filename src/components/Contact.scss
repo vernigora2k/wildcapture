@@ -201,6 +201,11 @@
         height: 48px;
     }
 
+    .contact__submit {
+        box-sizing: border-box;
+        margin-left: 0;
+    }
+
     .footer {
         display: flex;
         flex-direction: column;
