@@ -6,12 +6,17 @@ import { Pipeline } from '../components/Pipeline'
 import './Whatwedo.scss'
 
 export const WhatWeDo = () => {
+    const handleGetInTouch = () => {
+        console.log('Get in touch')
+    }
+
     // const [whatWeDoPage, setWhatWeDoPage] = useState(window.location.href.includes('whatwedo'))
     return (
         <Fragment>
             <section className="whatwedo__banner" >
                 <div className="whatwedo__layer">
                     <img className="banner-image" src={"../img/banner-homepage.png"} />
+                    <img className="home-banner-small" src={"../img/banner-homepage-small.png"} />
                     <div className="banner-left-layer">
                         {/* <div className="whatwedo__logo"></div> */}
                         <div className="whatwedo__title"><span>Evolving</span> the Digital Worlds</div>
@@ -31,6 +36,9 @@ export const WhatWeDo = () => {
                             <span>
                                 Expertise & Forecast of Industry 
                             </span>
+                        </div>
+                        <div className="whatwedo__getintouch-container">
+                            <button className="button whatwedo__getintouch" onSubmit={handleGetInTouch}>Get in touch</button>
                         </div>
                     </div>
                     <img className="banner-upper-layer" src={"../img/banner-whatwedo-page.png"} />

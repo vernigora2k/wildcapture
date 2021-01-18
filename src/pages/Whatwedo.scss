@@ -101,3 +101,77 @@ section.whatwedo__banner {
     position: absolute;
     z-index: 3;
 }
+
+.home-banner-small {
+    display: none;
+}
+
+@media all and (max-width: 1460px) {
+    section.whatwedo__banner {
+        width: 100%;
+        max-width: 414px;
+        // height: 724px;
+        height: 1266px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .whatwedo__layer {
+        width: 100%;
+    }
+
+    img.banner-image {
+        display: none;
+    }
+
+    .home-banner-small {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .whatwedo__banner::before {
+        left: 95%;
+    }
+
+    .whatwedo__banner::after {
+        left: 84%;
+    }
+
+    .banner-left-layer {
+        width: 100%;
+        max-width: 414px;
+        top: 724px;
+        // left: 513px;
+    }
+
+    .whatwedo__title {
+        font-size: 48px;
+        line-height: 60px;
+        margin-top: 55px;
+        padding-left: 16px;
+        padding-right: 30px;
+    }
+
+    div.whatwedo__text {
+        padding-left: 16px;
+        height: 202px;
+    }
+
+    .whatwedo__text span {
+        font-size: 18px;
+    }
+
+    .whatwedo__getintouch-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .whatwedo__getintouch {
+        
+    }
+
+}
