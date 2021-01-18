@@ -177,3 +177,198 @@
     top: 75px;
     z-index: 1;
 }
+
+@media all and (max-width: 1460px) {
+    .pipeline {
+        width: 100%;
+        max-width: 414px;
+        height: 1100px;
+    }
+
+    .pipeline__shell {
+        width: 100%;
+        height: 1100px;
+    }
+
+    .pipeline__shell::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 686px;
+        background:  rgba(255, 255, 255, .25);
+        z-index: 0;
+    }
+
+    .pipeline__shell::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 850px;
+        background:  rgba(255, 255, 255, .25);
+        z-index: 0;
+    }
+
+    .pipeline__layer {
+        border: 0;
+    }
+
+    .pipeline__layer::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 500px;
+        background:  rgba(255, 255, 255, .25);
+        z-index: 0;
+    }
+
+    .pipeline__layer::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 666px;
+        background:  rgba(255, 255, 255, .25);
+        z-index: 0;
+    }
+
+    .pipeline__title {
+        margin-top: 56px;
+        font-size: 48px;
+        line-height: 60px;
+        margin-left: 16px;
+    }
+
+    .pipeline__title::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 133px;
+        background:  rgba(255, 255, 255, .25);
+        z-index: 0;
+    }
+
+    .pipeline__title::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 298px;
+        background:  rgba(255, 255, 255, .25);
+        z-index: 0;
+    }
+
+    .pipeline__main {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .pipeline__main::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 317px;
+        background:  rgba(255, 255, 255, .25);
+        z-index: 0;
+    }
+
+    .pipeline__main::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 482px;
+        background:  rgba(255, 255, 255, .25);
+        z-index: 0;
+    }
+
+    .pipeline__item:nth-child(3n+2) {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    div.pipeline__item {
+        height: 168px;
+        margin-top: 16px;
+        width: 90%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .pipeline__item4::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1100px;
+        left: 0px;
+        top: -686px;
+        background:  rgba(255, 255, 255, .15);
+        z-index: 0;
+    }
+
+    .pipeline__item4::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1100px;
+        right: 0px;
+        top: -686px;
+        background:  rgba(255, 255, 255, .15);
+        z-index: 0;
+    }
+
+    .pipeline__item5::before {
+        content: '';
+        position: absolute;
+        width: 454px;
+        height: 1px;
+        left: -20px;
+        top: 0px;
+        background:  rgba(255, 255, 255, .15);
+        z-index: 0;
+    }
+
+    .pipeline__item5::after {
+        content: '';
+        position: absolute;
+        width: 454px;
+        height: 1px;
+        left: -20px;
+        bottom: 0px;
+        background:  rgba(255, 255, 255, .15);
+        z-index: 0;
+    }
+
+    .pipeline__item-caption {
+        font-size: 19px;
+        font-weight: 700;
+        padding-right: 130px;
+    }
+
+    .pipeline__item-description {
+        font-size: 19px;
+        font-weight: 500;
+        padding-right: 70px;
+    }
+
+    .pipeline__bottom-image {
+        display: none;
+    }
+
+
+}
