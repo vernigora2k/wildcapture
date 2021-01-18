@@ -164,6 +164,63 @@
 
     .about__button {
         margin-top: 36px;
+        width: 100%;
+    }
+
+    .about__logo {
+        top: 25px;
+        left: 23%;
+    }
+
+    .about__logo img {
+        width: 240px;
+        height: 260px;
+    }
+
+    .about__sidebar {
+        display: none;
+    }
+}
+
+@media all and (max-width: 376px) {
+    
+
+    .about__layer {
+        width: 90%;
+        margin-left: 17px;
+        margin-right: 19px;
+    }
+
+    .about__title {
+        font-size: 48px;
+        line-height: 60px;
+        padding-right: 16px;
+        margin-top: 290px;
+    }
+
+    .about__title::after {
+        display: none;
+    }
+
+    .about__text {
+        font-size: 18px;
+        width: 85%;
+        height: 145px;
+        margin-top: 25px;
+    }
+
+    .about__text span {
+        line-height: 22px;
+    }
+
+    .about__button-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about__button {
+        margin-top: 36px;
     }
 
     .about__logo {

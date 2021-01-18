@@ -312,7 +312,19 @@
         background-size: cover;
     }
 
+    .work__button {
+        width: 96%;
+    }
+
     .work__sidebar {
         display: none;
     }
+}
+
+@media all and (max-width: 376px) {
+
+    .work__button {
+        width: 96%;
+    }
+
 }

@@ -37,7 +37,7 @@ export const Contact = () => {
                             <input className="contact__input" type="text" placeholder="Your email" />
                             <input className="contact__input" type="text" placeholder="Your company" />
                             <textarea className="contact__textarea" placeholder="How can we help.." />
-                            <input type="submit" className="button contact__submit" value="Send" />
+                            <input type="submit" className="button contact__submit" id="contact__submit" value="Send" />
                         </form>
                     </div>
                     <footer className="footer">

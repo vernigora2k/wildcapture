@@ -195,15 +195,25 @@
     .contact__form {
         align-self: center;
         margin-top: 55px;
+        width: 96%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .contact__input {
         height: 48px;
+        width: 90%;
     }
 
-    .contact__submit {
-        box-sizing: border-box;
+    .contact__textarea {
+        width: 90%;
+    }
+
+    #contact__submit {
+        width: 95%;
         margin-left: 0;
+        box-sizing: border-box;
     }
 
     .footer {
@@ -222,4 +232,33 @@
     .footer__copyright {
         font-size: 14px;
     }
+}
+
+@media all and (max-width: 376px) {
+
+    .contact__form {
+        display: flex;
+        flex-direction: column;
+        // width: 90%;
+    }
+
+    .contact__input {
+        width: 87%;
+        align-self: center;
+    }
+
+    #contact__submit {
+        width: 94%;
+    }
+
+    .contact__textarea {
+        width: 87%;
+        align-self: center;
+    }
+
+    #contact__submit {
+        align-self: center;
+        width: 328px;
+    }
+
 }
