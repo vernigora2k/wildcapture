@@ -23,7 +23,7 @@ export const Work = () => {
         <section className="work" id="work">
             <div className="work__shell">
                 <div className="work__layer">
-                    <div className="work__title">Real Digital <br/>People</div>
+                    <div className="work__title">Real Digital People</div>
                     <div className="work__videos">
                         {!isMoreWorks ? 
                             Object.entries(workVideos).slice(1,4).map(([name, value]) => {return (
