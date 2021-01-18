@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import './Partners.scss'
 
 export const Partners = () => {

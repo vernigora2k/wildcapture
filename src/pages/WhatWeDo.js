@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Contact } from '../components/Contact'
 import { Expertise } from '../components/Expertise'
 import { Partners } from '../components/Partners'
@@ -10,7 +10,6 @@ export const WhatWeDo = () => {
         console.log('Get in touch')
     }
 
-    // const [whatWeDoPage, setWhatWeDoPage] = useState(window.location.href.includes('whatwedo'))
     return (
         <Fragment>
             <section className="whatwedo__banner" >
@@ -18,7 +17,6 @@ export const WhatWeDo = () => {
                     <img className="banner-image" src={"../img/banner-homepage.png"} />
                     <img className="home-banner-small" src={"../img/banner-homepage-small.png"} />
                     <div className="banner-left-layer">
-                        {/* <div className="whatwedo__logo"></div> */}
                         <div className="whatwedo__title"><span>Evolving</span> the Digital Worlds</div>
                         <div className="whatwedo__text">
                             <span>
@@ -51,5 +49,3 @@ export const WhatWeDo = () => {
         </Fragment>
     )
 }
-
-// style={{ backgroundImage: "url(img/banner-whatwedo-page.png)"}}

@@ -1,9 +1,7 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import './Expertise.scss'
 
 export const Expertise = () => {
-    
-
     return (
         <section className="expertise">
             <div className="expertise__shell">

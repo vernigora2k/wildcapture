@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './Contact.scss';
 import { NavLink } from 'react-router-dom';
 

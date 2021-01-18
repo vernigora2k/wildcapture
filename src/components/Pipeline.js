@@ -1,9 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import './Pipeline.scss'
 
 export const Pipeline = () => {
     
-
     return (
         <section className="pipeline">
             <div className="pipeline__shell">
