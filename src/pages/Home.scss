@@ -62,3 +62,32 @@
         left: 80%;
     }
 }
+
+@media all and (max-width: 376px) {
+    .home-banner {
+        width: 100%;
+        max-width: 414px;
+        height: 724px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .home-banner-large {
+        display: none;
+    }
+
+    .home-banner-small {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .home-banner::before {
+        left: 95%;
+    }
+
+    .home-banner::after {
+        left: 80%;
+    }
+}
