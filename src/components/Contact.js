@@ -22,14 +22,14 @@ export const Contact = () => {
                         </nav>
                         <div className="contact__info">
                             <div>
-                                <span className="contact__info-value">Louis Normandin</span>
-                                <span className="contact__info-caption">Head of Production</span>
-                                <span className="contact__info-email">Louis@wildcapture.io</span> 
-                            </div>
-                            <div>
                                 <span className="contact__info-value">Wilfred Driscoll</span>
                                 <span className="contact__info-caption">Chief Executive Officer</span>
                                 <span className="contact__info-email">wd@wildcapture.io</span> 
+                            </div>
+                            <div>
+                                <span className="contact__info-value">Louis Normandin</span>
+                                <span className="contact__info-caption">Head of Production</span>
+                                <span className="contact__info-email">Louis@wildcapture.io</span> 
                             </div>
                         </div>
                         <form className="contact__form" onSubmit={handleFormSubmit}>
