@@ -33,10 +33,17 @@ export const Contact = () => {
                             </div>
                         </div>
                         <form className="contact__form" onSubmit={handleFormSubmit}>
-                            <input className="contact__input" type="text" placeholder="Your name" />
-                            <input className="contact__input" type="text" placeholder="Your email" />
-                            <input className="contact__input" type="text" placeholder="Your company" />
-                            <textarea className="contact__textarea" placeholder="How can we help.." />
+
+                            {/* Hidden Required Fields */}
+                            <input type="hidden" name="project_name" value="Wildcapture" />
+                            <input type="hidden" name="admin_email" value="vernigora2k@gmail.com" />
+                            <input type="hidden" name="form_subject" value="Form Contact us" />
+                            {/* END Hidden Required Fields */}
+                        
+                            <input className="contact__input" type="text" placeholder="Your name" name="name" />
+                            <input className="contact__input" type="text" placeholder="Your email" name="email" />
+                            <input className="contact__input" type="text" placeholder="Your company" name="your-company" />
+                            <textarea className="contact__textarea" placeholder="How can we help.." name="how-can-we-help" />
                             <input type="submit" className="button contact__submit" id="contact__submit" value="Send" />
                         </form>
                     </div>
