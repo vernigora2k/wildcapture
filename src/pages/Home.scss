@@ -1,8 +1,12 @@
 .home-banner {
     width: 1440px;
-    height: 724px;
+    height: 810px;
     position: relative;
     z-index: 1;
+}
+
+.home-banner-large {
+    display: none;
 }
 
 .home-banner::before {
@@ -11,7 +15,7 @@
     width: 1px;
     height: 108px;
     left: 1279px;
-    top: 616px;
+    top: 702px;
     background: #00CAE1;
 }
 
@@ -21,7 +25,7 @@
     width: 120px;
     height: 24px;
     left: 1222px;
-    top: 535px;
+    top: 621px;
     font-style: normal;
     font-weight: 600;
     font-size: 19px;
@@ -43,15 +47,23 @@
         position: relative;
     }
 
+    .home-banner video {
+       
+    }
+
     .home-banner-large {
         display: none;
     }
 
     .home-banner-small {
-        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
+    }
+    
+    .home-banner-small {
+        display: none !important;
     }
 
     .home-banner::before {
