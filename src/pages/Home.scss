@@ -48,7 +48,7 @@
     }
 
     .home-banner video {
-       
+       display: none;
     }
 
     .home-banner-large {
@@ -63,15 +63,17 @@
     }
     
     .home-banner-small {
-        display: none !important;
+        // display: none !important;
     }
 
     .home-banner::before {
         left: 95%;
+        top: 615px;
     }
 
     .home-banner::after {
         left: 80%;
+        top: 530px;
     }
 }
 

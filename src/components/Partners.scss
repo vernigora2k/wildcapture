@@ -153,6 +153,27 @@
     opacity: 0.5;
 }
 
+.partners__image::before {
+    content: '';
+    position: absolute;
+    width: 1440px;
+    height: 1px;
+    left: -735px;
+    top: 430px;
+    background:  rgba(255, 255, 255, .5);
+    z-index: 0;
+}
+.partners__image::after {
+    content: '';
+    position: absolute;
+    width: 1440px;
+    height: 1px;
+    left: -735px;
+    top: 550px;
+    background:  rgba(255, 255, 255, .5);
+    z-index: 0;
+}
+
 @media all and (max-width: 1460px) {
     .partners {
         width: 100%;
