@@ -27,7 +27,7 @@ export const Work = () => {
                     <div className="work__videos">
                         {!isMoreWorks ? 
                             Object.entries(workVideos).slice(1,4).map(([name, value]) => {return (
-                            <div className="work__videos-item" id="work__videos-item">
+                            <div className="work__videos-item" id="work__videos-item" key={name}>
                                 <span className="videos-item-caption">
                                     {name}
                                 </span>
@@ -36,7 +36,7 @@ export const Work = () => {
                             </div>
                             )}) 
                         :   Object.entries(workVideos).map(([name, value]) => {return (
-                            <div className="work__videos-item" id="work__videos-item">
+                            <div className="work__videos-item" id="work__videos-item" key="value">
                                 <span className="videos-item-caption">
                                     {name}
                                 </span>
