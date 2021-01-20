@@ -6,10 +6,6 @@ import { Pipeline } from '../components/Pipeline'
 import './Whatwedo.scss'
 
 export const WhatWeDo = () => {
-    const handleGetInTouch = () => {
-        console.log('Get in touch')
-    }
-
     return (
         <Fragment>
             <section className="whatwedo__banner" >
@@ -35,9 +31,9 @@ export const WhatWeDo = () => {
                                 Expertise & Forecast of Industry 
                             </span>
                         </div>
-                        <div className="whatwedo__getintouch-container">
-                            <button className="button whatwedo__getintouch" onSubmit={handleGetInTouch}>Get in touch</button>
-                        </div>
+                        <a className="whatwedo__getintouch-container" href="/#contact">
+                            <button className="button whatwedo__getintouch">Get in touch</button>
+                        </a>
                     </div>
                     <img className="banner-upper-layer" src={"../img/banner-whatwedo-page.png"} />
                 </div>
