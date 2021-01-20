@@ -9,10 +9,6 @@ export const Header = () => {
         setToggleHamburgerMenu(!toggleHamburgerMenu)
     }
 
-    const handleGetInTouch = () => {
-        console.log('Get in touch')
-    }
-
     return (
         <header className="header">
             <div className="header__shell">
@@ -29,11 +25,13 @@ export const Header = () => {
                         </nav>
                         {toggleHamburgerMenu ? 
                             <nav className="header__hamburger-menu">
-                                <NavLink to="/whatwedo" className="nav__nav-link">What we do</NavLink>
-                                <a href="/#about" className="nav__nav-link">About</a>
-                                <a href="/#work" className="nav__nav-link">Work</a>
-                                <a href="/#contact" className="nav__nav-link">Contact</a>
-                                <button className="button hamburger-getintouch" onSubmit={handleGetInTouch}>Get in touch</button>
+                                <NavLink to="/whatwedo" className="nav__nav-link" onClick={handleHamburgerMenu}>What we do</NavLink>
+                                <a href="/#about" className="nav__nav-link" onClick={handleHamburgerMenu}>About</a>
+                                <a href="/#work" className="nav__nav-link" onClick={handleHamburgerMenu}>Work</a>
+                                <a href="/#contact" className="nav__nav-link" onClick={handleHamburgerMenu}>Contact</a>
+                                <form className="hamburger-getintouch-container" method="LINK" action="/#contact">
+                                    <button className="button hamburger-getintouch">Get in touch</button>
+                                </form>
                                 <button 
                                     className="header__hamburger-close" 
                                     onClick={handleHamburgerMenu} 
