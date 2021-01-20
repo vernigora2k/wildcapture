@@ -79,6 +79,7 @@
 
 .contact__form {
     width: 357px;
+    position: relative;
 }
 
 .contact__input {
@@ -93,8 +94,27 @@
     margin-bottom: 16px;
 }
 
+.contact__input:hover {
+    border-color: #00CAE1;
+}
+
 .contact__input:focus {
     border-color: rgba(255, 255, 0, .45);
+}
+
+.label-input-your-company {
+    position: absolute;
+    top: 128px;
+    left: 13px;
+    background-color: #06262D;
+    // background-color: yellow;
+    padding: 1px;
+    line-height: 19px;
+    font-size: 15px;
+}
+
+#input-your-company:focus .label-input-your-company {
+   
 }
 
 .contact__textarea {
@@ -108,6 +128,10 @@
     padding-left: 17px;
     padding-top: 12px;
     resize: none;
+}
+
+.contact__textarea:hover {
+    border-color: #00CAE1;
 }
 
 .contact__textarea:focus {

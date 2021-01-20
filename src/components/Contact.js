@@ -44,7 +44,8 @@ export const Contact = () => {
                         <form className="contact__form" onSubmit={sendMessage}>
                             <input className="contact__input" type="text" placeholder="Your name" name="name" />
                             <input className="contact__input" type="text" placeholder="Your email" name="email" />
-                            <input className="contact__input" type="text" placeholder="Your company" name="company" />
+                            <label className="label-input label-input-your-company hidden" for="input-your-company">Your company</label>
+                            <input id="input-your-company" className="contact__input" type="text" placeholder="Your company" name="company" />
                             <textarea className="contact__textarea" placeholder="How can we help.." name="message" />
                             <input type="submit" className="button contact__submit" id="contact__submit" value="Send" />
                         </form>
