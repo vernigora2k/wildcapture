@@ -1,11 +1,20 @@
 import React from 'react';
 import './Contact.scss';
 import { NavLink } from 'react-router-dom';
+import emailjs from 'emailjs-com';
 
 export const Contact = () => {
-    const handleFormSubmit = (e) => {
+    const sendMessage = (e) => {
         e.preventDefault()
-        console.log('Send Message')
+
+        emailjs.sendForm('default_service', 'template_khyazu5', e.target, 'user_OJ3mNGaHIui9Vw3ETVM3w')
+            .then((result) => {
+                console.log(result.text);
+                alert('Message sended')
+            }, (error) => {
+                console.log(error.text);
+            });
+            e.target.reset()
     }
 
     return (
@@ -32,11 +41,11 @@ export const Contact = () => {
                                 <span className="contact__info-email">Louis@wildcapture.io</span> 
                             </div>
                         </div>
-                        <form className="contact__form" onSubmit={handleFormSubmit}>
-                            <input className="contact__input" type="text" placeholder="Your name" />
-                            <input className="contact__input" type="text" placeholder="Your email" />
-                            <input className="contact__input" type="text" placeholder="Your company" />
-                            <textarea className="contact__textarea" placeholder="How can we help.." />
+                        <form className="contact__form" onSubmit={sendMessage}>
+                            <input className="contact__input" type="text" placeholder="Your name" name="name" />
+                            <input className="contact__input" type="text" placeholder="Your email" name="email" />
+                            <input className="contact__input" type="text" placeholder="Your company" name="company" />
+                            <textarea className="contact__textarea" placeholder="How can we help.." name="message" />
                             <input type="submit" className="button contact__submit" id="contact__submit" value="Send" />
                         </form>
                     </div>
