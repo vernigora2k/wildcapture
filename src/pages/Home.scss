@@ -5,6 +5,10 @@
     z-index: 1;
 }
 
+.home-banner-movie-small {
+    display: none;
+}
+
 .home-banner-large {
     display: none;
 }
@@ -47,8 +51,12 @@
         position: relative;
     }
 
-    .home-banner video {
-       
+    .home-banner-movie {
+       display: none;
+    }
+
+    .home-banner-movie-small {
+        display: block;
     }
 
     .home-banner-large {
@@ -68,10 +76,12 @@
 
     .home-banner::before {
         left: 95%;
+        top: 615px;
     }
 
     .home-banner::after {
         left: 80%;
+        top: 530px;
     }
 }
 
