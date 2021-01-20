@@ -23,9 +23,9 @@ export const About = () => {
                             Instant High Quality Content on the Web
                         </span>
                     </div>
-                    <div className="about__button-container">
+                    <form className="about__button-container" method="LINK" action="/#contact">
                         <button className="button about__button" onSubmit={handleSubmit}>Get in touch</button>
-                    </div>
+                    </form>
                 </div>
                 <div className="about__logo">
                     <img src={"../img/about-main-image.svg"} />
