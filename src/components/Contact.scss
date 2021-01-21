@@ -105,48 +105,40 @@
 
 
 .label-input-name {
-    // display: block !important;
     position: absolute;
     top: -9px;
     left: 13px;
     background-color: #06262D;
-    // background-color: yellow;
     padding: 1px;
     line-height: 19px;
     font-size: 15px;
 }
 
 .label-input-email {
-    // display: block !important;
     position: absolute;
     top: 60px;
     left: 13px;
     background-color: #06262D;
-    // background-color: yellow;
     padding: 1px;
     line-height: 19px;
     font-size: 15px;
 }
 
 .label-input-your-company {
-    // display: block !important;
     position: absolute;
     top: 128px;
     left: 13px;
     background-color: #06262D;
-    // background-color: yellow;
     padding: 1px;
     line-height: 19px;
     font-size: 15px;
 }
 
 .label-textarea {
-    // display: block !important;
     position: absolute;
     top: 197px;
     left: 13px;
     background-color: #06262D;
-    // background-color: yellow;
     padding: 1px;
     line-height: 19px;
     font-size: 15px;
@@ -154,6 +146,15 @@
 
 .contact__input-visited {
     border-color: #00CAE1;
+}
+
+.input-error-email {
+    border-color: #EB0048;
+    color: #EB0048;
+}
+
+.label-error {
+    color: #EB0048 !important;
 }
 
 .contact__textarea {

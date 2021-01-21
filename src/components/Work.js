@@ -36,7 +36,7 @@ export const Work = () => {
                             </div>
                             )}) 
                         :   Object.entries(workVideos).map(([name, value]) => {return (
-                            <div className="work__videos-item" id="work__videos-item" key="value">
+                            <div className="work__videos-item" id="work__videos-item" key={name}>
                                 <span className="videos-item-caption">
                                     {name}
                                 </span>

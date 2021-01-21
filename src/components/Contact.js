@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 
 export const Contact = () => {
-    // const [inputYourCompany, setInputYourCompany] = useState('')
     const [inputYourCompanyFocus, setInputYourCompanyFocus] = useState(false)
     const [inputYourCompanyDirty, setInputYourCompanyDirty] = useState(false)
     const [errorInputYourCompany, setErrorInputYourCompany] = useState(false)
 
     const [inputEmailFocus, setInputEmailFocus] = useState(false)
     const [inputEmailDirty, setInputEmailDirty] = useState(false)
+    const [inputEmail, setInputEmail] = useState('')
     const [errorEmail, setErrorEmail] = useState(false)
 
     const [inputNameFocus, setInputNameFocus] = useState(false)
@@ -20,6 +20,16 @@ export const Contact = () => {
     const [textareaFocus, setTextareaFocus] = useState(false)
     const [textareaDirty, setTextAreaDirty] = useState(false)
     const [errorTextarea, setErrorTextarea] = useState(false)
+
+    const emailHandler = (e) => {
+        setInputEmail(e.target.value)
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(!re.test(String(e.target.value).toLowerCase())) {
+            setErrorEmail(true)
+        } else {
+            setErrorEmail(false)
+        }
+    }
 
     const focusInputHandle = (e) => {
         switch (e.target.name) {
@@ -66,6 +76,7 @@ export const Contact = () => {
                 console.log(error.text);
             });
             e.target.reset()
+            setInputEmail('')
     }
 
     return (
@@ -106,18 +117,21 @@ export const Contact = () => {
                               placeholder="Your name" 
                               name="name" 
                             />
-                            {inputEmailFocus  && 
-                                <label className="label-input label-input-email" htmlFor="input-email">Your email</label>
+                            {(inputEmailFocus && errorEmail)  
+                                ? <label className="label-input label-input-email label-error" htmlFor="input-email">Your email/error</label>
+                                : (inputEmailFocus && <label className="label-input label-input-email" htmlFor="input-email">Your email</label>)
                             }
                             <input 
                               id="input-email" 
                               onFocus={focusInputHandle}
                               onBlur={blurInputHandle}
-                              className={inputEmailDirty ? 'contact__input contact__input-visited' : 'contact__input'} 
+                              onChange={emailHandler}
+                              className={(inputEmailDirty && errorEmail) ? 'contact__input contact__input-visited input-error-email' : (inputEmailDirty ? 'contact__input contact__input-visited' : 'contact__input')} 
                               required 
-                              type="text" 
+                              type="email" 
                               placeholder="Your email" 
                               name="email" 
+                              value={inputEmail}
                             />
                             {inputYourCompanyFocus  && 
                                 <label className="label-input label-input-your-company" htmlFor="input-your-company">Your company</label>
