@@ -88,7 +88,7 @@
     background-color: transparent;
     border: 1px solid #084654;
     border-radius: 8px;
-    color: #00CAE1;
+    color: white;
     font-size: 19px;
     padding-left: 17px;
     margin-bottom: 16px;
@@ -99,10 +99,13 @@
 }
 
 .contact__input:focus {
-    border-color: rgba(255, 255, 0, .45);
+    border-color: #00CAE1;
 }
 
+
+
 .label-input-your-company {
+    // display: block !important;
     position: absolute;
     top: 128px;
     left: 13px;
@@ -113,8 +116,8 @@
     font-size: 15px;
 }
 
-#input-your-company:focus .label-input-your-company {
-   
+.contact__input-visited {
+    border-color: #00CAE1;;
 }
 
 .contact__textarea {
@@ -135,7 +138,7 @@
 }
 
 .contact__textarea:focus {
-    border-color: rgba(255, 255, 0, .45);
+    border-color: #00CAE1;
 }
 
 .contact__submit {
