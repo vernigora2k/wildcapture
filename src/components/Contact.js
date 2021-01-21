@@ -13,6 +13,10 @@ export const Contact = () => {
     const [inputEmailDirty, setInputEmailDirty] = useState(false)
     const [errorEmail, setErrorEmail] = useState(false)
 
+    const [inputNameFocus, setInputNameFocus] = useState(false)
+    const [inputNameDirty, setInputNameDirty] = useState(false)
+    const [errorName, setErrorName] = useState(false)
+
     const focusInputHandle = (e) => {
         switch (e.target.name) {
             case 'company':
@@ -20,6 +24,10 @@ export const Contact = () => {
                 break
             case 'email':
                 setInputEmailFocus(true)
+                break
+            case 'name':
+                setInputNameFocus(true)
+                break
         }
     }
 
@@ -30,6 +38,9 @@ export const Contact = () => {
                 break
             case 'email':
                 setInputEmailDirty(true)
+                break
+            case 'name':
+                setInputNameDirty(true)
                 break
         }
     }
@@ -72,7 +83,19 @@ export const Contact = () => {
                             </div>
                         </div>
                         <form className="contact__form" onSubmit={sendMessage}>
-                            <input className="contact__input" required type="text" placeholder="Your name" name="name" />
+                            {inputNameFocus  && 
+                                <label className="label-input label-input-name" htmlFor="input-name">Your name</label>
+                            }
+                            <input 
+                              id="input-name"
+                              onFocus={focusInputHandle}
+                              onBlur={blurInputHandle}
+                              className={inputNameDirty ? 'contact__input contact__input-visited' : 'contact__input'} 
+                              required 
+                              type="text" 
+                              placeholder="Your name" 
+                              name="name" 
+                            />
                             {inputEmailFocus  && 
                                 <label className="label-input label-input-email" htmlFor="input-email">Your email</label>
                             }

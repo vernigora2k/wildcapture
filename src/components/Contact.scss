@@ -104,6 +104,18 @@
 
 
 
+.label-input-name {
+    // display: block !important;
+    position: absolute;
+    top: -8px;
+    left: 13px;
+    background-color: #06262D;
+    // background-color: yellow;
+    padding: 1px;
+    line-height: 19px;
+    font-size: 15px;
+}
+
 .label-input-email {
     // display: block !important;
     position: absolute;
