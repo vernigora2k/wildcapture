@@ -17,6 +17,10 @@ export const Contact = () => {
     const [inputNameDirty, setInputNameDirty] = useState(false)
     const [errorName, setErrorName] = useState(false)
 
+    const [textareaFocus, setTextareaFocus] = useState(false)
+    const [textareaDirty, setTextAreaDirty] = useState(false)
+    const [errorTextarea, setErrorTextarea] = useState(false)
+
     const focusInputHandle = (e) => {
         switch (e.target.name) {
             case 'company':
@@ -27,6 +31,9 @@ export const Contact = () => {
                 break
             case 'name':
                 setInputNameFocus(true)
+                break
+            case 'message':
+                setTextareaFocus(true)
                 break
         }
     }
@@ -41,6 +48,9 @@ export const Contact = () => {
                 break
             case 'name':
                 setInputNameDirty(true)
+                break
+            case 'message':
+                setTextAreaDirty(true)
                 break
         }
     }
@@ -121,7 +131,18 @@ export const Contact = () => {
                               placeholder="Your company" 
                               name="company" 
                             />
-                            <textarea className="contact__textarea" required placeholder="How can we help.." name="message" />
+                            {textareaFocus  && 
+                                <label className="label-input label-textarea" htmlFor="textarea-message">Your message</label>
+                            }
+                            <textarea 
+                              id="textarea-message" 
+                              onFocus={focusInputHandle}
+                              onBlur={blurInputHandle}
+                              className={textareaDirty ? 'contact__textarea contact__textarea-visited' : 'contact__textarea'} 
+                              required 
+                              placeholder="How can we help.." 
+                              name="message" 
+                            />
                             <input type="submit" className="button contact__submit" id="contact__submit" value="Send" />
                         </form>
                     </div>

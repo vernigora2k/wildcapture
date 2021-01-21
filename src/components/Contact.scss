@@ -107,7 +107,7 @@
 .label-input-name {
     // display: block !important;
     position: absolute;
-    top: -8px;
+    top: -9px;
     left: 13px;
     background-color: #06262D;
     // background-color: yellow;
@@ -140,8 +140,20 @@
     font-size: 15px;
 }
 
+.label-textarea {
+    // display: block !important;
+    position: absolute;
+    top: 197px;
+    left: 13px;
+    background-color: #06262D;
+    // background-color: yellow;
+    padding: 1px;
+    line-height: 19px;
+    font-size: 15px;
+}
+
 .contact__input-visited {
-    border-color: #00CAE1;;
+    border-color: #00CAE1;
 }
 
 .contact__textarea {
@@ -150,11 +162,15 @@
     background-color: transparent;
     border: 1px solid #084654;
     border-radius: 8px;
-    color: #00CAE1;
+    color: white;
     font-size: 19px;
     padding-left: 17px;
     padding-top: 12px;
     resize: none;
+}
+
+.contact__textarea-visited {
+    border-color: #00CAE1;
 }
 
 .contact__textarea:hover {
