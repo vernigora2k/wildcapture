@@ -27,10 +27,10 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
-    <Canvas>
+    {/* <Canvas>
       <OrbitControls />
       <Box />
-    </Canvas>
+    </Canvas> */}
     </>
   );
 }
