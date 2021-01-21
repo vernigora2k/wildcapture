@@ -9,11 +9,17 @@ export const Contact = () => {
     const [inputYourCompanyDirty, setInputYourCompanyDirty] = useState(false)
     const [errorInputYourCompany, setErrorInputYourCompany] = useState(false)
 
+    const [inputEmailFocus, setInputEmailFocus] = useState(false)
+    const [inputEmailDirty, setInputEmailDirty] = useState(false)
+    const [errorEmail, setErrorEmail] = useState(false)
+
     const focusInputHandle = (e) => {
         switch (e.target.name) {
             case 'company':
                 setInputYourCompanyFocus(true)
                 break
+            case 'email':
+                setInputEmailFocus(true)
         }
     }
 
@@ -21,6 +27,9 @@ export const Contact = () => {
         switch (e.target.name) {
             case 'company':
                 setInputYourCompanyDirty(true)
+                break
+            case 'email':
+                setInputEmailDirty(true)
                 break
         }
     }
@@ -64,7 +73,19 @@ export const Contact = () => {
                         </div>
                         <form className="contact__form" onSubmit={sendMessage}>
                             <input className="contact__input" required type="text" placeholder="Your name" name="name" />
-                            <input className="contact__input" required type="text" placeholder="Your email" name="email" />
+                            {inputEmailFocus  && 
+                                <label className="label-input label-input-email" htmlFor="input-email">Your email</label>
+                            }
+                            <input 
+                              id="input-email" 
+                              onFocus={focusInputHandle}
+                              onBlur={blurInputHandle}
+                              className={inputEmailDirty ? 'contact__input contact__input-visited' : 'contact__input'} 
+                              required 
+                              type="text" 
+                              placeholder="Your email" 
+                              name="email" 
+                            />
                             {inputYourCompanyFocus  && 
                                 <label className="label-input label-input-your-company" htmlFor="input-your-company">Your company</label>
                             }
