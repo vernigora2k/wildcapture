@@ -1,4 +1,5 @@
 import React from 'react';
+import { VolumetricPlayer } from './VolumetricPlayer';
 import './About.scss'
 
 export const About = () => {
@@ -24,6 +25,7 @@ export const About = () => {
                 </div>
                 <div className="about__logo">
                     <img src={"../img/about-main-image.svg"} />
+                    <VolumetricPlayer style={{ width: '100%', height: 400 }} meshFilePath={"http://localhost:3000/liam.drcs"} videoFilePath={"http://localhost:3000/liam.mp4"} />
                 </div>
                 <div className="about__sidebar">
                     <ul>
