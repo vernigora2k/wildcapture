@@ -25,21 +25,12 @@ export default class DracosisPlayer {
         this.numberOfKeyframes = 0;
         this.numberOfIframes = 0;
         // Start loop to check if we're ready to play
-        this.play = () => {
-            console.log("Playing");
-            const buffering = setInterval(() => {
-                if (this.meshBuffer && this.meshBuffer.getBufferLength() >= this.keyframesToBufferBeforeStart) {
-                    console.log("Keyframe buffer length is ", this.meshBuffer.getBufferLength(), ", playing video");
-                    clearInterval(buffering);
-                    this._video.play();
-                    this.mesh.visible = true;
-                }
-            }, 1000 / 60);
-        };
+        
         var dataObj = '(' + workerFunction + ')();'; // here is the trick to convert the above fucntion to string
         var blob = new Blob([dataObj.replace('"use strict";', '')], { type: 'application/javascript' }); // firefox adds "use strict"; to any function which might block worker execution so knock it off
         var blobURL = (window.URL ? URL : webkitURL).createObjectURL(blob);
         var worker = new Worker(blobURL); // spawn new worker
+        this.worker = worker;
         const handleFrameData = (frameData) => {
             console.log("Adding frame data: ", frameData);
             let geometry = new BufferGeometry();
@@ -95,7 +86,7 @@ export default class DracosisPlayer {
         console.log("**** requestVideoFrameCallback");
         // Create a default mesh
         this.material = new MeshBasicMaterial({ map: this._videoTexture });
-        this.mesh = new Mesh(new PlaneBufferGeometry(1, 1), this.material);
+        this.mesh = new Mesh(new PlaneBufferGeometry(0.00001, 0.00001), this.material);
         this.mesh.scale.set(this._scale, this._scale, this._scale);
         this.scene.add(this.mesh);
         const xhr = new XMLHttpRequest();
@@ -128,6 +119,19 @@ export default class DracosisPlayer {
         };
         xhr.open('GET', this.manifestFilePath, true); // true for asynchronous
         xhr.send();
+
+        this.play = () => {
+            console.log("Playing");
+            const buffering = setInterval(() => {
+                if (this.meshBuffer && this.meshBuffer.getBufferLength() >= this.keyframesToBufferBeforeStart) {
+                    console.log("Keyframe buffer length is ", this.meshBuffer.getBufferLength(), ", playing video");
+                    clearInterval(buffering);
+                    this._video.play();
+                    this.mesh.visible = true;
+                }
+            }, 1000 / 60);
+            this.bufferingTimer = buffering;
+        };
     }
     // public getters and settings
     get currentFrame() {
