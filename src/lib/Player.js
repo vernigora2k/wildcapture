@@ -150,6 +150,9 @@ export default class DracosisPlayer {
         let frameToPlay = Math.round(metadata.mediaTime * 25);
         console.log("FRame to play is", frameToPlay);
         const keyframeToPlay = this.fileHeader.frameData[frameToPlay].keyframeNumber;
+        if (!this._video){
+            return
+        }
         if (Math.round(this._video.currentTime * 25) !== metadata.presentedFrames)
             console.log('==========DIFF', Math.round(this._video.currentTime * 25), Math.round(metadata.mediaTime * 25), metadata.presentedFrames, metadata);
         let hasKeyframe = true;
