@@ -62,24 +62,24 @@ export const VolumetricPlayer = (props) => {
     return () => {
       // clear volumetric player
       // DracosisSequence.dispose();
-      DracosisSequence._video?.stop();
-      DracosisSequence._video.parentElement.removeChild(DracosisSequence._video);
-      DracosisSequence._video = null;
-      DracosisSequence._videoTexture.dispose();
-      DracosisSequence._videoTexture = null;
-      window.removeEventListener('resize',onResize)
-      cancelAnimationFrame(animationFrameId);
-      controls.dispose();
-      DracosisSequence.worker.terminate();
-      if (DracosisSequence.bufferingTimer){
-        clearInterval(DracosisSequence.bufferingTimer); 
-      }
-      DracosisSequence.meshBuffer.array.forEach(element => {
-        if (element){
-          element.bufferGeometry.dispose();
-        }
-      });
-      DracosisSequence.meshBuffer.clear();
+      // DracosisSequence._video?.stop();
+      // DracosisSequence._video.parentElement.removeChild(DracosisSequence._video);
+      // DracosisSequence._video = null;
+      // DracosisSequence._videoTexture.dispose();
+      // DracosisSequence._videoTexture = null;
+      // window.removeEventListener('resize',onResize)
+      // cancelAnimationFrame(animationFrameId);
+      // controls.dispose();
+      // DracosisSequence.worker.terminate();
+      // if (DracosisSequence.bufferingTimer){
+      //   clearInterval(DracosisSequence.bufferingTimer); 
+      // }
+      // DracosisSequence.meshBuffer.array.forEach(element => {
+      //   if (element){
+      //     element.bufferGeometry.dispose();
+      //   }
+      // });
+      // DracosisSequence.meshBuffer.clear();
     }
   }, []);
 
