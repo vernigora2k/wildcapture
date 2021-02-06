@@ -321,6 +321,14 @@
     }
 }
 
+@media all and (max-width: 1024px) {
+
+    .work__title {
+        max-width: 380px;
+    }
+
+}
+
 @media all and (max-width: 376px) {
 
     .work__button {
