@@ -7,8 +7,12 @@ import './VolumetricPlayer.scss'
 export const VolumetricPlayer = (props) => {
   console.log('props', props);
   const containerRef = useRef();
-  let renderer,animationFrameId;
-
+  /**
+   *
+   * @type {React.MutableRefObject<WebGLRenderer>}
+   */
+  const rendererRef = useRef(null);
+  let animationFrameId;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -21,10 +25,10 @@ export const VolumetricPlayer = (props) => {
       camera = new PerspectiveCamera(75, w / h, 0.001, 100),
       controls = new OrbitControls(camera, container),
       renderConfig = { antialias: true, alpha: true };
-    if (!renderer){
-      renderer = new WebGLRenderer(renderConfig);
-
+    if (!rendererRef.current) {
+      rendererRef.current = new WebGLRenderer(renderConfig);
     }
+    let renderer = rendererRef.current;
     controls.target = new Vector3(0, 1, 0);
     controls.panSpeed = 0.4;
     camera.position.set(0, 1.7, 1.5);
