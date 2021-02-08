@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import DracosisPlayer from "../lib/Player"
-import { PerspectiveCamera, Scene, Vector3, WebGLRenderer,LinearFilter } from "three"
+import { PerspectiveCamera, Scene, Vector3, WebGLRenderer, sRGBEncoding } from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import './VolumetricPlayer.scss'
 
@@ -29,6 +29,7 @@ export const VolumetricPlayer = (props) => {
     controls.panSpeed = 0.4;
     camera.position.set(0, 1.7, 1.5);
     camera.lookAt(controls.target);
+    renderer.outputEncoding = sRGBEncoding;
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(w, h);
     container.appendChild(renderer.domElement);
