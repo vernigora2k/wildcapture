@@ -6,6 +6,10 @@ import './VolumetricPlayer.scss'
 
 export const VolumetricPlayer = (props) => {
   console.log('props', props);
+  /**
+   *
+   * @type {React.MutableRefObject<HTMLElement>}
+   */
   const containerRef = useRef();
   /**
    *
@@ -59,37 +63,36 @@ export const VolumetricPlayer = (props) => {
       meshFilePath: props.meshFilePath,
       videoFilePath: props.videoFilePath,
       autoplay: false
-      
     });
 
     render();
     DracosisSequence.play();
-    
+
     return () => {
       // clear volumetric player
       // DracosisSequence.dispose();
-      if (DracosisSequence._video){
-      // DracosisSequence._video.stop();
-      DracosisSequence._video.parentElement.removeChild(DracosisSequence._video);
-      DracosisSequence._video = null;
-      DracosisSequence._videoTexture.dispose();
-      DracosisSequence._videoTexture = null;
-      window.removeEventListener('resize',onResize)
-      cancelAnimationFrame(animationFrameId);
-      controls.dispose();
-      DracosisSequence.worker.terminate();
-      if (DracosisSequence.bufferingTimer){
-        clearInterval(DracosisSequence.bufferingTimer); 
-      }
-      if (DracosisSequence.meshBuffer){
-      DracosisSequence.meshBuffer.array?.forEach(element => {
-        if (element){
-          element.bufferGeometry.dispose();
+      if (DracosisSequence._video) {
+        // DracosisSequence._video.stop();
+        DracosisSequence._video.parentElement.removeChild(DracosisSequence._video)
+        DracosisSequence._video = null
+        DracosisSequence._videoTexture.dispose()
+        DracosisSequence._videoTexture = null
+        window.removeEventListener("resize", onResize)
+        cancelAnimationFrame(animationFrameId)
+        controls.dispose()
+        DracosisSequence.worker.terminate()
+        if (DracosisSequence.bufferingTimer) {
+          clearInterval(DracosisSequence.bufferingTimer)
         }
-      });
-      DracosisSequence.meshBuffer.clear();
-    }
-    }
+        if (DracosisSequence.meshBuffer) {
+          DracosisSequence.meshBuffer.array?.forEach(element => {
+            if (element) {
+              element.bufferGeometry.dispose()
+            }
+          })
+          DracosisSequence.meshBuffer.clear()
+        }
+      }
     }
   }, []);
 
