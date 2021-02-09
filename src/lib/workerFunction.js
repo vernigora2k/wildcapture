@@ -10,7 +10,7 @@ export function workerFunction() {
     let lastRequestedKeyframe = -1;
     let _numberOfKeyframes;
     let _fileHeader;
-    async function startFetching({ meshFilePath, numberOfKeyframes, fileHeader }) {
+    function startFetching({ meshFilePath, numberOfKeyframes, fileHeader }) {
         //@ts-ignore
         let rangeFetcher = new HttpRangeFetcher({});
         console.log("Range fetcher");
