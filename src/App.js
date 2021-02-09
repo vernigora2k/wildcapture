@@ -24,7 +24,7 @@ function App() {
         <Switch>
           <Route path={'/'} exact component={Home}></Route>
           <Route path={'/whatwedo'} component={WhatWeDo}></Route>
-          <Route path={'/volumetric'} component={Volumetric}></Route>
+          <Route path={'/volumetric'} component={Volumetric}></Route> 
         </Switch>
       </div>
     </BrowserRouter>
