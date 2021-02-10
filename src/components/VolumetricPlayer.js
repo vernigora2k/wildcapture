@@ -1,8 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import DracosisPlayer from "../lib/Player"
-import { PerspectiveCamera, Scene, Vector3, WebGLRenderer, sRGBEncoding } from "three"
+import {
+  PerspectiveCamera,
+  Scene,
+  Vector3,
+  WebGLRenderer,
+  sRGBEncoding,
+  // Mesh, SphereBufferGeometry, BoxBufferGeometry,
+  // MeshNormalMaterial
+} from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import './VolumetricPlayer.scss'
+
+const cameraOrbitingHeight = 1.7;
+const cameraDistance = 6.5;
+const cameraVerticalOffset = 0.4;
+const cameraFov = 35;
 
 export const VolumetricPlayer = (props) => {
   console.log('props', props);
@@ -26,16 +39,16 @@ export const VolumetricPlayer = (props) => {
     let w = container.clientWidth,
       h = container.clientHeight;
     const scene = new Scene(),
-      camera = new PerspectiveCamera(75, w / h, 0.001, 100),
+      camera = new PerspectiveCamera(cameraFov, w / h, 0.001, 100),
       controls = new OrbitControls(camera, container),
       renderConfig = { antialias: true, alpha: true };
     if (!rendererRef.current) {
       rendererRef.current = new WebGLRenderer(renderConfig);
     }
     let renderer = rendererRef.current;
-    controls.target = new Vector3(0, 1, 0);
+    controls.target = new Vector3(0, cameraOrbitingHeight, 0);
     controls.panSpeed = 0.4;
-    camera.position.set(0, 1.7, 1.5);
+    camera.position.set(0, cameraOrbitingHeight, cameraDistance);
     camera.lookAt(controls.target);
     renderer.outputEncoding = sRGBEncoding;
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -47,8 +60,31 @@ export const VolumetricPlayer = (props) => {
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
+      setCameraOffset();
     }
     window.addEventListener('resize',onResize)
+
+    /**
+     * shift camera from it's center
+     */
+    function setCameraOffset() {
+      const fullWidth = w;
+      const fullHeight = h + h * Math.abs(cameraVerticalOffset);
+      const width = w;
+      const height = h;
+      const x = 0;
+      const y = h * cameraVerticalOffset;
+      /*
+      fullWidth — full width of multiview setup
+      fullHeight — full height of multiview setup
+      x — horizontal offset of subcamera
+      y — vertical offset of subcamera
+      width — width of subcamera
+      height — height of subcamera
+       */
+      camera.setViewOffset( fullWidth, fullHeight, x, y, width, height);
+    }
+    setCameraOffset();
 
     function render() {
       animationFrameId = requestAnimationFrame(render);
@@ -57,6 +93,21 @@ export const VolumetricPlayer = (props) => {
     }
 
     console.log('create new player');
+    // dummy to test
+    // const box = new Mesh(
+    //   new BoxBufferGeometry(0.5, 1.45, 0.5),
+    //   new MeshNormalMaterial()
+    // );
+    // box.position.y = 1.45 / 2;
+    // scene.add(box);
+    //
+    // const head = new Mesh(
+    //   new SphereBufferGeometry(0.25),
+    //   new MeshNormalMaterial()
+    // );
+    // head.position.y = 1.7;
+    // scene.add(head);
+
     const DracosisSequence = new DracosisPlayer({
       scene,
       renderer,

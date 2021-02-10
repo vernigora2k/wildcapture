@@ -8,7 +8,7 @@ export const Volumetric = () => {
     return (
         <Fragment>
             <section className="volumetric__wrapper" >
-              <VolumetricPlayer style={{ width: '100%', height: 500 }} meshFilePath={meshFilePath} videoFilePath={videoFilePath} />
+              <VolumetricPlayer style={{ width: '100%', height: '100%' }} meshFilePath={meshFilePath} videoFilePath={videoFilePath} />
             </section>
         </Fragment>
     )
