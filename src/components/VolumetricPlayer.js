@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import DracosisPlayer from "../lib/Player"
 import {
   PerspectiveCamera,
@@ -30,6 +30,9 @@ export const VolumetricPlayer = (props) => {
    */
   const rendererRef = useRef(null);
   let animationFrameId;
+  const [ dracosisSequence, setDracosisSequence ] = useState(null);
+  const [ playIsStarted, setPlayIsStarted ] = useState(false);
+  const [ canPlay, setCanPlay ] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -62,7 +65,7 @@ export const VolumetricPlayer = (props) => {
       renderer.setSize(w, h);
       setCameraOffset();
     }
-    window.addEventListener('resize',onResize)
+    window.addEventListener('resize',onResize);
 
     /**
      * shift camera from it's center
@@ -108,46 +111,69 @@ export const VolumetricPlayer = (props) => {
     // head.position.y = 1.7;
     // scene.add(head);
 
-    const DracosisSequence = new DracosisPlayer({
+    setDracosisSequence(new DracosisPlayer({
       scene,
       renderer,
       meshFilePath: props.meshFilePath,
       videoFilePath: props.videoFilePath,
       autoplay: false
-    });
+    }));
 
     render();
-    DracosisSequence.play();
+    // DracosisSequence.play();
 
     return () => {
       // clear volumetric player
       // DracosisSequence.dispose();
-      if (DracosisSequence._video) {
+      if (dracosisSequence && dracosisSequence._video) {
         // DracosisSequence._video.stop();
-        DracosisSequence._video.parentElement.removeChild(DracosisSequence._video)
-        DracosisSequence._video = null
-        DracosisSequence._videoTexture.dispose()
-        DracosisSequence._videoTexture = null
+        dracosisSequence._video.parentElement.removeChild(dracosisSequence._video)
+        dracosisSequence._video = null
+        dracosisSequence._videoTexture.dispose()
+        dracosisSequence._videoTexture = null
         window.removeEventListener("resize", onResize)
         cancelAnimationFrame(animationFrameId)
         controls.dispose()
-        DracosisSequence.worker.terminate()
-        if (DracosisSequence.bufferingTimer) {
-          clearInterval(DracosisSequence.bufferingTimer)
+        dracosisSequence.worker.terminate()
+        if (dracosisSequence.bufferingTimer) {
+          clearInterval(dracosisSequence.bufferingTimer)
         }
-        if (DracosisSequence.meshBuffer) {
-          DracosisSequence.meshBuffer.array?.forEach(element => {
+        if (dracosisSequence.meshBuffer) {
+          dracosisSequence.meshBuffer.array?.forEach(element => {
             if (element) {
               element.bufferGeometry.dispose()
             }
           })
-          DracosisSequence.meshBuffer.clear()
+          dracosisSequence.meshBuffer.clear()
         }
       }
+      setDracosisSequence(null);
+      setPlayIsStarted(false);
+      setCanPlay(false);
     }
   }, []);
 
+  useEffect(() => {
+    if (dracosisSequence) {
+      dracosisSequence._video.addEventListener('canplay', () => {
+        setCanPlay(true);
+      })
+    }
+  }, [ dracosisSequence ]);
+
+  function startPlayer() {
+    if (dracosisSequence) {
+      dracosisSequence.play();
+      setPlayIsStarted(true);
+    }
+  }
+
   // this is play button
   // onClick={(e) => DracosisSequence.play()}
-  return <div className= "volumetric__player" style={props.style} ref={containerRef}></div>;
+  const videoReady = dracosisSequence && canPlay;
+  const playButton = playIsStarted? null : <button onClick={() => startPlayer()} disabled={!videoReady} className={"button"}>{videoReady? "Play" : "Loading..."}</button>;
+
+  return <div className= "volumetric__player" style={props.style} ref={containerRef}>
+    { playButton }
+  </div>;
 }
