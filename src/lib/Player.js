@@ -25,7 +25,7 @@ export default class DracosisPlayer {
         this.numberOfKeyframes = 0;
         this.numberOfIframes = 0;
         // Start loop to check if we're ready to play
-        
+
         var dataObj = '(' + workerFunction + ')();'; // here is the trick to convert the above fucntion to string
         var blob = new Blob([dataObj.replace('"use strict";', '')], { type: 'application/javascript' }); // firefox adds "use strict"; to any function which might block worker execution so knock it off
         var blobURL = (window.URL ? URL : webkitURL).createObjectURL(blob);
@@ -82,7 +82,7 @@ export default class DracosisPlayer {
         this._video.style.width = '1px';
 
         this._video.playbackRate = 1;
-        this._video.requestVideoFrameCallback(this.videoUpdateHandler.bind(this));
+        this.requestVideoFrameCallback();
         console.log("**** requestVideoFrameCallback");
         // Create a default mesh
         this.material = new MeshBasicMaterial({ map: this._videoTexture });
@@ -143,18 +143,51 @@ export default class DracosisPlayer {
     set loop(value) {
         this._loop = value;
     }
+
+    requestVideoFrameCallback() {
+        if ('requestVideoFrameCallback' in this._video) {
+            this._video.requestVideoFrameCallback(this.videoUpdateHandler.bind(this));
+        } else {
+            requestAnimationFrame(this.videoAnimationFrame.bind(this));
+        }
+    }
+
+    /**
+     * emulated video frame callback trigger
+     * bridge from requestVideoFrameCallback to videoUpdateHandler
+     * @param now
+     */
+    videoAnimationFrame(now) {
+        const keyFrame = Math.round(this._video.currentTime * this.frameRate);
+        if (keyFrame === this.currentKeyframe) {
+            // same keyframe, skip videoUpdateHandler, re-requestNextAnimationFrame
+            this.requestVideoFrameCallback();
+            return;
+        }
+
+        this.videoUpdateHandler(now, {
+            mediaTime: this._video.currentTime,
+            presentedFrames: keyFrame // we use presentedFrames only for check, so no need to be precise here
+        });
+    }
+
+    /**
+     *
+     * @param {number} now
+     * @param {{mediaTime:number, presentedFrames:number}} metadata
+     */
     videoUpdateHandler(now, metadata) {
         console.log("videoUpdateHandler");
         if (!this._isinitialized)
             return console.warn("Not inited");
-        let frameToPlay = Math.round(metadata.mediaTime * 25);
+        let frameToPlay = Math.round(metadata.mediaTime * this.frameRate);
         console.log("FRame to play is", frameToPlay);
         const keyframeToPlay = this.fileHeader.frameData[frameToPlay].keyframeNumber;
         if (!this._video){
             return
         }
-        if (Math.round(this._video.currentTime * 25) !== metadata.presentedFrames)
-            console.log('==========DIFF', Math.round(this._video.currentTime * 25), Math.round(metadata.mediaTime * 25), metadata.presentedFrames, metadata);
+        if (Math.round(this._video.currentTime * this.frameRate) !== metadata.presentedFrames)
+            console.log('==========DIFF', Math.round(this._video.currentTime * this.frameRate), Math.round(metadata.mediaTime * this.frameRate), metadata.presentedFrames, metadata);
         let hasKeyframe = true;
         if (hasKeyframe && frameToPlay !== this._prevFrame) {
             this._prevFrame = frameToPlay;
@@ -181,7 +214,7 @@ export default class DracosisPlayer {
             }
             this.mesh.material.needsUpdate = true;
         }
-        this._video.requestVideoFrameCallback(this.videoUpdateHandler.bind(this));
+        this.requestVideoFrameCallback();
     }
     getPositionInKeyframeBuffer(keyframeNumber) {
         // Search backwards, which should make the for loop shorter on longer buffer
@@ -203,4 +236,3 @@ export default class DracosisPlayer {
         return -1;
     }
 }
-//# sourceMappingURL=Player.js.map
