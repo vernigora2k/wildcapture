@@ -18,7 +18,6 @@ const cameraVerticalOffset = 0.4;
 const cameraFov = 35;
 
 export const VolumetricPlayer = (props) => {
-  console.log('props', props);
   /**
    *
    * @type {React.MutableRefObject<HTMLElement>}
@@ -32,7 +31,9 @@ export const VolumetricPlayer = (props) => {
   let animationFrameId;
   const [ dracosisSequence, setDracosisSequence ] = useState(null);
   const [ playIsStarted, setPlayIsStarted ] = useState(false);
-  const [ canPlay, setCanPlay ] = useState(false);
+  const [ isBuffering, setIsBuffering ] = useState(false);
+  const [ bufferingProgress, setBufferingProgress ] = useState(0);
+  const videoReady = !!dracosisSequence;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -111,13 +112,36 @@ export const VolumetricPlayer = (props) => {
     // head.position.y = 1.7;
     // scene.add(head);
 
-    setDracosisSequence(new DracosisPlayer({
+    const player = new DracosisPlayer({
       scene,
       renderer,
       meshFilePath: props.meshFilePath,
       videoFilePath: props.videoFilePath,
       autoplay: false
-    }));
+    });
+    setDracosisSequence(player);
+
+    /*
+'video-started'
+'video-error'
+'mesh-frames-started'
+'mesh-frames-progress'
+'mesh-frames-finished'
+'mesh-frames-buffering'
+'video-frame-handler'
+'frame-show'
+'error'
+     */
+    player.addEventListener('mesh-frames-buffering', (progress) => {
+      console.warn('BUFFERING!!', progress);
+      setBufferingProgress(Math.round(progress * 100));
+      setIsBuffering(true);
+    });
+    player.addEventListener('frame-show', () => {
+      setIsBuffering(false);
+    });
+
+    console.log('+++  dracosisSequence')
 
     render();
     // DracosisSequence.play();
@@ -125,55 +149,49 @@ export const VolumetricPlayer = (props) => {
     return () => {
       // clear volumetric player
       // DracosisSequence.dispose();
-      if (dracosisSequence && dracosisSequence._video) {
-        // DracosisSequence._video.stop();
-        dracosisSequence._video.parentElement.removeChild(dracosisSequence._video)
-        dracosisSequence._video = null
-        dracosisSequence._videoTexture.dispose()
-        dracosisSequence._videoTexture = null
+      console.log('+++ CLEANUP player', !!player, !!player?._video);
+      if (player && player?._video) {
+        // player._video.stop();
+        player._video.pause();
+        player._video.parentElement.removeChild(player._video)
+        player._video = null
+        player._videoTexture.dispose()
+        player._videoTexture = null
         window.removeEventListener("resize", onResize)
         cancelAnimationFrame(animationFrameId)
         controls.dispose()
-        dracosisSequence.worker.terminate()
-        if (dracosisSequence.bufferingTimer) {
-          clearInterval(dracosisSequence.bufferingTimer)
+        player.worker.terminate()
+        if (player.bufferingTimer) {
+          clearInterval(player.bufferingTimer)
         }
-        if (dracosisSequence.meshBuffer) {
-          dracosisSequence.meshBuffer.array?.forEach(element => {
+        if (player.meshBuffer) {
+          player.meshBuffer.array?.forEach(element => {
             if (element) {
               element.bufferGeometry.dispose()
             }
           })
-          dracosisSequence.meshBuffer.clear()
+          player.meshBuffer.clear()
         }
       }
       setDracosisSequence(null);
       setPlayIsStarted(false);
-      setCanPlay(false);
+      setIsBuffering(false);
     }
   }, []);
 
-  useEffect(() => {
-    if (dracosisSequence) {
-      dracosisSequence._video.addEventListener('canplay', () => {
-        setCanPlay(true);
-      })
-    }
-  }, [ dracosisSequence ]);
-
   function startPlayer() {
-    if (dracosisSequence) {
+    if (videoReady) {
       dracosisSequence.play();
       setPlayIsStarted(true);
     }
   }
 
-  // this is play button
-  // onClick={(e) => DracosisSequence.play()}
-  const videoReady = dracosisSequence && canPlay;
-  const playButton = playIsStarted? null : <button onClick={() => startPlayer()} disabled={!videoReady} className={"button"}>{videoReady? "Play" : "Loading..."}</button>;
+  // const videoIsPlaying = dracosisSequence?._video && (!dracosisSequence._video.paused && !dracosisSequence._video.seeking && dracosisSequence._video.currentTime > 0);
+  const playButton = playIsStarted? null : <button onTouchEnd={() => startPlayer()} onClick={() => startPlayer()} className={"button"}>{videoReady? "Play" : "Loading..."}</button>;
+  const bufferingIndication = isBuffering? <div className={"buffering-indication"}>Buffering: {bufferingProgress}%</div> : null;
 
   return <div className= "volumetric__player" style={props.style} ref={containerRef}>
     { playButton }
+    { bufferingIndication }
   </div>;
 }
