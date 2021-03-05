@@ -221,6 +221,13 @@ export default class DracosisPlayer {
         xhr.send();
 
         this.play = () => {
+            this._video.setAttribute("playsinline", "playsinline");
+            this._video.play().then(() => {
+                clearInterval(buffering);
+                // console.log('playing');
+            }).catch(e => {
+                console.log('error on play()', e);
+            });
             if (this._debugLevel > 0) {
                 console.log("Playing");
             }
@@ -229,11 +236,7 @@ export default class DracosisPlayer {
                     // console.log("Keyframe buffer length is ", this.meshBuffer.getBufferLength(), ", playing video");
                     clearInterval(buffering);
 
-                    this._video.play().then(() => {
-                        // console.log('playing');
-                    }).catch(e => {
-                        console.log('error on play()', e);
-                    });
+
                     this.mesh.visible = true;
                 } else {
                     this._triggerEvent('mesh-frames-buffering', this.meshBuffer.getBufferLength() / this.keyframesToBufferBeforeStart);
