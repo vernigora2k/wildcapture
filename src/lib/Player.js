@@ -160,6 +160,7 @@ export default class DracosisPlayer {
         this._scale = scale;
         this._video = document.createElement('video');
         this._video.crossorigin = "anonymous";
+        this._video.setAttribute("playsinline", "playsinline");
         this._video.loop = true;
         this._video.src = videoFilePath;
         this._videoTexture = new VideoTexture(this._video);
@@ -221,25 +222,27 @@ export default class DracosisPlayer {
         xhr.send();
 
         this.play = () => {
+            this._video.play().then(() => {
+                // clearInterval(buffering);
+                // console.log('playing');
+            }).catch(e => {
+                console.log('error on play()', e);
+            });
             if (this._debugLevel > 0) {
                 console.log("Playing");
             }
-            const buffering = setInterval(() => {
-                if (this.meshBuffer && this.meshBuffer.getBufferLength() >= this.keyframesToBufferBeforeStart) {
-                    // console.log("Keyframe buffer length is ", this.meshBuffer.getBufferLength(), ", playing video");
-                    clearInterval(buffering);
-
-                    this._video.play().then(() => {
-                        // console.log('playing');
-                    }).catch(e => {
-                        console.log('error on play()', e);
-                    });
-                    this.mesh.visible = true;
-                } else {
-                    this._triggerEvent('mesh-frames-buffering', this.meshBuffer.getBufferLength() / this.keyframesToBufferBeforeStart);
-                }
-            }, 1000 / 60);
-            this.bufferingTimer = buffering;
+            // const buffering = setInterval(() => {
+            //     if (this.meshBuffer && this.meshBuffer.getBufferLength() >= this.keyframesToBufferBeforeStart) {
+            //         // console.log("Keyframe buffer length is ", this.meshBuffer.getBufferLength(), ", playing video");
+            //         clearInterval(buffering);
+            //
+            //
+            //         this.mesh.visible = true;
+            //     } else {
+            //         this._triggerEvent('mesh-frames-buffering', this.meshBuffer.getBufferLength() / this.keyframesToBufferBeforeStart);
+            //     }
+            // }, 1000 / 60);
+            // this.bufferingTimer = buffering;
         };
     }
     // public getters and settings
