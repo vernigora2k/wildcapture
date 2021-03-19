@@ -5,14 +5,14 @@ export const Work = () => {
     const [isMoreWorks, setIsMoreWorks] = useState(false);
 
     const workVideos = {
-        name1: 'work-video-item.png',
-        name2: 'work-video-item.png',
-        name3: 'work-video-item.png',
-        name4: 'work-video-item.png',
-        name5: 'work-video-item.png',
-        name6: 'work-video-item.png',
-        name7: 'work-video-item.png',
-        name8: 'work-video-item.png',
+        CohortCrowdSystem: 'work-video-item.png',
+        KungFu: 'work-video-kfu.png',
+        EntertheTomb: 'work-video-tut.png',
+        VanishingAmericanDream: 'work-video-vad.png',
+        CaptainMorgan: 'work-video-cap.png',
+        Obama: 'work-video-obama.png',
+        DracosisWebPlayer: 'work-video-drac.png',
+        Chakra: 'work-video-yoga.png',
     }
 
     const moreWorkToggle = () => {
@@ -23,7 +23,7 @@ export const Work = () => {
         <section className="work" id="work">
             <div className="work__shell">
                 <div className="work__layer">
-                    <div className="work__title">Real Digital People</div>
+                    <div className="work__title">Projects</div>
                     <div className="work__videos">
                         {!isMoreWorks ? 
                             Object.entries(workVideos).slice(1,4).map(([name, value]) => {return (
@@ -31,7 +31,7 @@ export const Work = () => {
                                 <span className="videos-item-caption">
                                     {name}
                                 </span>
-                                <div className="videos-item-content" style={{ backgroundImage: `url(img/${value})` }}>
+                                <div className="videos-item-content" style={{ backgroundImage: `url(img/${value})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
                                 </div>
                             </div>
                             )}) 
@@ -40,7 +40,7 @@ export const Work = () => {
                                 <span className="videos-item-caption">
                                     {name}
                                 </span>
-                                <div className="videos-item-content" style={{ backgroundImage: `url(img/${value})` }}>
+                                <div className="videos-item-content" style={{ backgroundImage: `url(img/${value})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
                                 </div>
                             </div>
                             )}) 

@@ -3,6 +3,7 @@
 export function workerFunction() {
     //@ts-ignore
     importScripts(location.origin + '/corto/corto.js', location.origin + '/corto/rangeFetcher.js');
+    const activeDataLoadsLimit = 10;
     var self = this;
     let _meshFilePath;
     let currentKeyframe = 0;
@@ -10,7 +11,7 @@ export function workerFunction() {
     let lastRequestedKeyframe = -1;
     let _numberOfKeyframes;
     let _fileHeader;
-    async function startFetching({ meshFilePath, numberOfKeyframes, fileHeader }) {
+    function startFetching({ meshFilePath, numberOfKeyframes, fileHeader }) {
         //@ts-ignore
         let rangeFetcher = new HttpRangeFetcher({});
         console.log("Range fetcher");
@@ -19,19 +20,26 @@ export function workerFunction() {
         _numberOfKeyframes = numberOfKeyframes;
         _fileHeader = fileHeader;
         self.postMessage({ type: "initialized" });
+        let activeDataLoads = 0;
         fetchLoop = setInterval(() => {
             if (lastRequestedKeyframe >= _numberOfKeyframes) {
                 clearInterval(fetchLoop);
-                self.postMessage({ type: "complete" });
+                self.postMessage({ type: "completed" });
+                console.log('loading complete');
             }
+            if (activeDataLoads > activeDataLoadsLimit) {
+                return;
+            }
+            activeDataLoads++;
             // Now increment one more
             lastRequestedKeyframe++;
             // This is our new keyframe
             const newKeyframe = lastRequestedKeyframe;
             const keyframe = _fileHeader.frameData[newKeyframe];
+            // console.log('loading frame', newKeyframe, ' / ', _fileHeader.frameData.length);
             if (keyframe === undefined)
-                return console.log("Keyframe undefined");
-            console.log("Keyframe is", fileHeader.frameData[newKeyframe]);
+                return console.log("Keyframe undefined", newKeyframe);
+            //console.log("Keyframe is", fileHeader.frameData[newKeyframe]);
             // Get count of frames associated with keyframe
             const iframes = _fileHeader.frameData.filter(frame => frame.keyframeNumber === newKeyframe && frame.keyframeNumber !== frame.frameNumber).sort((a, b) => (a.frameNumber < b.frameNumber));
             const requestStartBytePosition = keyframe.startBytePosition;
@@ -42,8 +50,8 @@ export function workerFunction() {
                 // Slice keyframe out by byte position
                 const keyframeStartPosition = 0;
                 const keyframeEndPosition = keyframe.meshLength;
-                console.log("Mesh length: ", keyframe.meshLength);
-                console.log("Response is", response);
+                // console.log("Mesh length: ", keyframe.meshLength);
+                //console.log("Response is", response);
                 //@ts-ignore
                 let decoder = new CortoDecoder(response.buffer.buffer, keyframeStartPosition, keyframeEndPosition);
                 let keyframeMeshData = decoder.decode();
@@ -94,6 +102,8 @@ export function workerFunction() {
                 //   message.iframeBufferObjects.push(bufferObject);
                 // }
                 self.postMessage({ type: 'framedata', payload: message });
+                // console.log('frame', newKeyframe, 'loaded');
+                activeDataLoads--;
             });
         }, 1000 / 60);
     }

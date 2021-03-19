@@ -11,24 +11,21 @@ export const WhatWeDo = () => {
             <section className="whatwedo__banner" >
                 <div className="whatwedo__layer">
                     <img className="banner-image" src={"../img/banner-homepage.png"} />
-                    <img className="home-banner-small" src={"../img/banner-homepage-small.png"} />
+                    <img className="whatwedo-banner-small" src={"../img/banner-homepage-small.png"} />
                     <div className="banner-left-layer">
                         <div className="whatwedo__title"><span>Evolving</span> the Digital Worlds</div>
                         <div className="whatwedo__text">
                             <span>
-                                Expert guidance for simple solutions
+                                Populating Virtual Production with the Most Realistic Digital Humans
                             </span>
                             <span>
-                                Customized Performance Capture
+                                Machine Learning Solutions for Character Functionality & Quality
                             </span>
                             <span>
-                                Stage & System Architecture & Construction
+                                Customized Capture Stage Design & System Architecture
                             </span>
                             <span>
-                                Hardware & Software Engineering
-                            </span>
-                            <span>
-                                Expertise & Forecast of Industry 
+                                Expertise & Forecast in the Emerging Technologies Industry 
                             </span>
                         </div>
                         <a className="whatwedo__getintouch-container" href="/#contact">

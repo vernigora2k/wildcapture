@@ -50,3 +50,18 @@ button,input[type="submit"] {
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: #00CAE1;
 }
+
+.hidden {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #03181D inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
