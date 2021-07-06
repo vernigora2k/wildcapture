@@ -2,6 +2,11 @@ import React from 'react';
 import './About.scss'
 
 export const About = () => {
+    const handleSubmit = e => {
+        e.preventDefault()
+        console.log('Get in touch')
+    }
+
     return (
         <section className="about" id="about">
             <div className="about__shell" style={{ backgroundImage: "url(img/pirja4ko-temp.png)"}}>
@@ -19,7 +24,7 @@ export const About = () => {
                         </span>
                     </div>
                     <form className="about__button-container" method="LINK" action="/#contact">
-                        <button className="button about__button">Get in touch</button>
+                        <button className="button about__button" onSubmit={handleSubmit}>Get in touch</button>
                     </form>
                 </div>
                 <div className="about__logo">

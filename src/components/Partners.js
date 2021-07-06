@@ -21,7 +21,7 @@ export const Partners = () => {
                     <div className="partners__title">Partners</div>
                     <div className="partners__main">
                         {Object.entries(workVideos).map(([name, value]) => {return (
-                            <div className="partners__item-shell" key={name} >
+                            <div className="partners__item-shell" key={name}>
                                 <div className="partners__item" style={{ backgroundImage: `url(img/${value})` }}></div>
                             </div>    
                         )})}

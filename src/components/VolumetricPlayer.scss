@@ -1,6 +1,32 @@
 .volumetric__player{
     min-width: 200px;
+
+    canvas{
+        min-width: 200px;
+    }
+
+    button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
 }
-.volumetric__player canvas{
-    min-width: 200px;
+
+.buffering-indication {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 10px 40px;
+    background: linear-gradient(
+        90deg
+      , #4a7ec1 0%, #ec0f60 100%);
+    //border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 24px rgba(176, 15, 146, 0.47);
+    border-radius: 8px;
+    font-size: 19px;
+    font-weight: 500;
 }

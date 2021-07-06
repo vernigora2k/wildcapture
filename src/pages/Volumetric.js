@@ -3,10 +3,12 @@ import { VolumetricPlayer } from '../components/VolumetricPlayer';
 import './Volumetric.scss'
 
 export const Volumetric = () => {
+  const meshFilePath = document.location.origin + "/liam.drcs";
+  const videoFilePath = document.location.origin + "/liam.mp4";
     return (
         <Fragment>
             <section className="volumetric__wrapper" >
-            <VolumetricPlayer style={{ width: '100%', height: 500 }} meshFilePath={"http://localhost:3000/liam.drcs"} videoFilePath={"http://localhost:3000/liam.mp4"} />
+              <VolumetricPlayer style={{ width: '100%', height: '100%' }} meshFilePath={meshFilePath} videoFilePath={videoFilePath} />
             </section>
         </Fragment>
     )

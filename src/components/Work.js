@@ -31,7 +31,7 @@ export const Work = () => {
                                 <span className="videos-item-caption">
                                     {name}
                                 </span>
-                                <div className="videos-item-content" style={{ backgroundImage: `url(img/${value})` }}>
+                                <div className="videos-item-content" style={{ backgroundImage: `url(img/${value})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
                                 </div>
                             </div>
                             )}) 
@@ -40,7 +40,7 @@ export const Work = () => {
                                 <span className="videos-item-caption">
                                     {name}
                                 </span>
-                                <div className="videos-item-content" style={{ backgroundImage: `url(img/${value})` }}>
+                                <div className="videos-item-content" style={{ backgroundImage: `url(img/${value})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
                                 </div>
                             </div>
                             )}) 

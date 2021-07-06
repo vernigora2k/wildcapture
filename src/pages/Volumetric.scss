@@ -1,13 +1,16 @@
 .volumetric__wrapper {
-    margin-top: 200px;
-    margin-left: 50px;
+    //margin-top: 200px;
+    //margin-left: 50px;
     display: flex;
-    max-width: 1440px;
-    max-height: 724px;
+    //max-width: 1440px;
+    //max-height: 724px;
     position: relative;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
 }
 
 canvas{
-    width: 200px;
+    //width: 200px;
 }
 
