@@ -11,16 +11,16 @@ export const About = () => {
         <section className="about" id="about">
             <div className="about__shell" style={{ backgroundImage: "url(img/pirja4ko-temp.png)"}}>
                 <div className="about__layer">
-                    <div className="about__title"><span>Wild Capture</span> Agency</div>
+                <div className="about__title"><span>WILD </span>CAPTURE </div>
                     <div className="about__text">
                         <span>
-                            We have the A-Z solution for the most realistic digital humans
+                            A-to-Z Consulting Solutions for Virtual Production, XR and VFX 
                         </span>
                         <span>
-                            Functional Photorealistic Assets and Environments
+                            Functional Volumetric Video Assets Optimized for Any Delivery
                         </span>
                         <span>
-                            Instant High Quality Content on the Web
+                            Advanced Performance Capture Machine Learning Workflows
                         </span>
                     </div>
                     <form className="about__button-container" method="LINK" action="/#contact">

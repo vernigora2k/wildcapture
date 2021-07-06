@@ -99,7 +99,7 @@ export const Contact = () => {
                             </div>
                             <div>
                                 <span className="contact__info-value">Louis Normandin</span>
-                                <span className="contact__info-caption">Head of Production</span>
+                                <span className="contact__info-caption">Chief Operating Officer</span>
                                 <span className="contact__info-email">Louis@wildcapture.io</span> 
                             </div>
                         </div>
